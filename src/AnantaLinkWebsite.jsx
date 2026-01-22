@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Activity, Cpu, ShieldCheck, Building2, Layers, Map, TrendingUp, Menu, X } from "lucide-react";
+import { Activity, Cpu, ShieldCheck, Building2, Layers, Map, TrendingUp, Menu, X, Linkedin, Twitter, Youtube, Instagram } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Simple local UI primitives to avoid path aliases
@@ -176,7 +176,10 @@ export default function AnantaLinkWebsite() {
     >
       {/* Navigation */}
       <nav className="sticky top-0 z-50 px-6 md:px-8 py-4 max-w-7xl mx-auto flex items-center justify-between backdrop-blur bg-black/40">
-        <img src="/images/anantalink-logo.svg" alt="AnantaLink Logo" className="h-10" />
+      
+         <a href="#platform" onClick={scrollToTop} aria-label="Go to home">
+          <img src="/images/anantalink-logo.svg" alt="AnantaLink Logo" className="h-10 cursor-pointer" />
+        </a>
 
         <ul className={`hidden md:flex space-x-8 ${darkMode ? "text-slate-300" : "text-slate-600"}`}>
           {navItems.map((item) => (
@@ -189,9 +192,6 @@ export default function AnantaLinkWebsite() {
         </ul>
 
         <div className="flex items-center gap-3">
-          <Button variant="outline" className="px-3 py-2" onClick={() => setDarkMode(!darkMode)}>
-            {darkMode ? "Light" : "Dark"}
-          </Button>
           <button className="md:hidden" onClick={() => setMenuOpen(true)} aria-label="Open menu">
             <Menu />
           </button>
@@ -215,7 +215,9 @@ export default function AnantaLinkWebsite() {
               transition={{ type: "spring", stiffness: 120 }}
             >
               <div className="flex items-center justify-between mb-8">
+                <a href="#platform" onClick={scrollToTop} aria-label="Go to home">
                 <img src="/images/anantalink-logo.svg" alt="AnantaLink Logo" className="h-10" />
+                </a>
                 <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
                   <X />
                 </button>
@@ -424,20 +426,70 @@ export default function AnantaLinkWebsite() {
 
       {/* Footer */}
       <footer className="px-8 py-16 bg-black text-slate-400">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between">
-          <p>© {new Date().getFullYear()} AnantaLink Technology Pvt. Ltd.</p>
-          <p>Modular. Predictive. Built for Indian healthcare reality.</p>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+          <div>
+            <p>© {new Date().getFullYear()} AnantaLink Technology Pvt. Ltd.</p>
+            <p className="mt-1">Modular. Predictive. Built for Indian healthcare reality.</p>
+          </div>
+
+          <div className="flex items-center gap-6">
+            <a
+              href="https://www.linkedin.com/company/anantalink"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="AnantaLink LinkedIn"
+              className="hover:text-white transition"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+            <a
+              href="https://twitter.com/anantalink"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="AnantaLink Twitter"
+              className="hover:text-white transition"
+            >
+              <Twitter className="w-5 h-5" />
+            </a>
+            <a
+              href="https://www.youtube.com/@anantalink"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="AnantaLink YouTube"
+              className="hover:text-white transition"
+            >
+              <Youtube className="w-5 h-5" />
+            </a>
+            <a
+              href="https://www.instagram.com/anantalink"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="AnantaLink Instagram"
+              className="hover:text-white transition"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+          </div>
         </div>
       </footer>
 
       {/* Back to Top */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-6 right-6 rounded-full bg-emerald-500 hover:bg-emerald-600 text-black px-4 py-3 shadow-lg"
-        aria-label="Back to top"
-      >
-        ↑
-      </button>
+      <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
+        <button
+          onClick={scrollToTop}
+          className="rounded-full bg-emerald-500 hover:bg-emerald-600 text-black px-4 py-3 shadow-lg"
+          aria-label="Back to top"
+        >
+          ↑
+        </button>
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          className="rounded-full bg-black/70 hover:bg-black text-white px-4 py-3 shadow-lg backdrop-blur"
+          aria-label="Toggle dark mode"
+        >
+          {darkMode ? "☀️" : "🌙"}
+        </button>
+      </div>
     </div>
   );
 }
