@@ -415,7 +415,7 @@ export default function AnantaLinkWebsite() {
         </p>
         <div className="flex flex-col md:flex-row gap-6">
           <div className="text-sm text-slate-400">
-            <p>Email: contact@anantalink.com</p>
+            <p>Email: contact@anantlink.com</p>
             <p>Phone: +91-9815758978</p>
             <p>Location: India</p>
           </div>
