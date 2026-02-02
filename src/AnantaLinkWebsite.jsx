@@ -261,7 +261,7 @@ export default function AnantaLinkWebsite() {
 
         <div className="rounded-2xl overflow-hidden shadow-lg hidden md:block">
           <img
-            src="https://ehealth.eletsonline.com/wp-content/uploads/2019/07/1.jpg"
+            src="images/hero-smart-hospital.png"
             alt="Smart hospital IoMT ecosystem"
             className="w-full h-full object-cover"
           />
@@ -272,7 +272,7 @@ export default function AnantaLinkWebsite() {
       <section className="px-8 py-20 bg-[#020617]">
         <div className="mb-12 max-w-7xl mx-auto rounded-2xl overflow-hidden shadow">
           <img
-            src="https://cdnintech.com/media/chapter/1186641/1750941997-382952735/media/F3.png"
+            src="images/anantalink-iomt-architecture.png"
             alt="AnantaLink modular IoMT architecture"
             className="w-full object-contain bg-white"
           />
