@@ -244,7 +244,7 @@ export default function anantlinkWebsite() {
       {/* Platform / Hero */}
       <section id="platform" className="px-8 py-28 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div>
-          <img src="/images/anantlink-logo.svg" alt="anantlink Logo" className="h-14 mb-6" />
+          {/* <img src="/images/anantlink-logo.svg" alt="anantlink Logo" className="h-14 mb-6" /> */}
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -275,13 +275,7 @@ export default function anantlinkWebsite() {
 
       {/* Vision & Mission */}
       <section className="px-8 py-20 bg-[#020617]">
-        <div className="mb-12 max-w-7xl mx-auto rounded-2xl overflow-hidden shadow">
-          <img
-            src="images/anantlink-iomt-architecture.png"
-            alt="anantlink modular IoMT architecture"
-            className="w-full object-contain bg-white"
-          />
-        </div>
+
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           <Card>
@@ -408,7 +402,22 @@ export default function anantlinkWebsite() {
               </CardContent>
             </Card>
           </div>
+
+          
         </div>
+          <p className="text-slate-400 max-w-3xl mx-auto mb-8 mt-16">
+            Anantlink's modular IoMT architecture is designed to seamlessly integrate
+            with existing hospital infrastructure, providing scalable and flexible
+            solutions that grow with your healthcare facility's needs.
+          </p>
+          <div className="mb-12 max-w-7xl mx-auto rounded-2xl overflow-hidden shadow">
+          <img
+            src="images/anantlink-iomt-architecture.png"
+            alt="anantlink modular IoMT architecture"
+            className="w-full object-contain bg-white"
+          />
+        </div>
+
       </section>
 
       {/* Contact */}
