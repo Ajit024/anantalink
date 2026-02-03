@@ -274,9 +274,11 @@ export default function anantlinkWebsite() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="px-8 py-20 bg-[#020617]">
-
-
+      <section id="vision-mission" className="px-8 py-28 max-w-7xl mx-auto">
+      <h2 className="text-3xl font-bold mb-4 text-emerald-800">Our Vision & Mission</h2>
+      <p className="text-slate-400 mb-12 max-w-3xl">
+        At anantlink, our vision is to revolutionize healthcare delivery by empowering hospitals with intelligent IoMT solutions that enhance patient care, optimize operations, and drive compliance.
+      </p>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           <Card>
             <CardContent>
