@@ -6,5 +6,5 @@ Disallow: /admin
 Disallow: /private
 
 # Sitemap location
-Sitemap: https://anantalink.com/sitemap.xml
-Sitemap: https://anantalink.vercel.app/sitemap.xml
+Sitemap: https://anantlink.com/sitemap.xml
+Sitemap: https://anantlink.vercel.app/sitemap.xml

@@ -27,13 +27,13 @@ function Button({ children, className = "", variant = "solid", onClick }) {
 // SEO helpers
 function useSEO() {
   useEffect(() => {
-    document.title = "AnantaLink | SmartCare IoMT Platform for Hospitals";
+    document.title = "anantlink | SmartCare IoMT Platform for Hospitals";
 
     const meta = [
       {
         name: "description",
         content:
-          "AnantaLink is a healthcare-first IoMT platform enabling smart hospitals through patient monitoring, asset tracking, compliance, and digital twin architecture.",
+          "anantlink is a healthcare-first IoMT platform enabling smart hospitals through patient monitoring, asset tracking, compliance, and digital twin architecture.",
       },
       {
         name: "keywords",
@@ -41,7 +41,7 @@ function useSEO() {
           "IoMT platform, smart hospital, healthcare IoT, hospital asset tracking, patient monitoring system, NABH compliance, digital twin healthcare, hospital automation India",
       },
       { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "AnantaLink – SmartCare IoMT Ecosystem" },
+      { property: "og:title", content: "anantlink – SmartCare IoMT Ecosystem" },
       {
         property: "og:description",
         content:
@@ -69,8 +69,8 @@ function useSEO() {
     ld.innerHTML = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
-      name: "AnantaLink Technology Pvt. Ltd.",
-      url: "https://anantalink.com",
+      name: "anantlink Technology Pvt. Ltd.",
+      url: "https://anantlink.com",
       description:
         "Healthcare-first IoMT platform for smart hospitals, patient monitoring, asset tracking, and digital twin architecture.",
       industry: "Healthcare IoMT",
@@ -89,11 +89,11 @@ function useSEO() {
     ldWebsite.innerHTML = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
-      name: "AnantaLink",
-      url: "https://anantalink.com",
+      name: "anantlink",
+      url: "https://anantlink.com",
       potentialAction: {
         "@type": "SearchAction",
-        target: "https://anantalink.com/?q={search_term_string}",
+        target: "https://anantlink.com/?q={search_term_string}",
         "query-input": "required name=search_term_string",
       },
     });
@@ -108,29 +108,29 @@ function useSEO() {
       mainEntity: [
         {
           "@type": "Question",
-          name: "What is AnantaLink?",
+          name: "What is anantlink?",
           acceptedAnswer: {
             "@type": "Answer",
             text:
-              "AnantaLink is a healthcare-first IoMT platform that helps hospitals monitor patients, track assets, and build AI-ready digital twins.",
+              "Anantlink is a healthcare-first IoMT platform that helps hospitals monitor patients, track assets, and build AI-ready digital twins.",
           },
         },
         {
           "@type": "Question",
-          name: "Who is AnantaLink for?",
+          name: "Who is anantlink for?",
           acceptedAnswer: {
             "@type": "Answer",
             text:
-              "AnantaLink is designed exclusively for hospitals, healthcare systems, and government healthcare infrastructure.",
+              "Anantlink is designed exclusively for hospitals, healthcare systems, and government healthcare infrastructure.",
           },
         },
         {
           "@type": "Question",
-          name: "Does AnantaLink support NABH or JCI compliance?",
+          name: "Does anantlink support NABH or JCI compliance?",
           acceptedAnswer: {
             "@type": "Answer",
             text:
-              "Yes. AnantaLink supports compliance workflows such as NABH and JCI through monitoring, reporting, and audit-ready data pipelines.",
+              "Yes. Anantlink supports compliance workflows such as NABH and JCI through monitoring, reporting, and audit-ready data pipelines.",
           },
         },
       ],
@@ -143,7 +143,7 @@ function useSEO() {
   }, []);
 }
 
-export default function AnantaLinkWebsite() {
+export default function anantlinkWebsite() {
   useSEO();
 
   const [darkMode, setDarkMode] = useState(true);
@@ -177,8 +177,11 @@ export default function AnantaLinkWebsite() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 px-6 md:px-8 py-4 max-w-7xl mx-auto flex items-center justify-between backdrop-blur bg-black/40">
       
-         <a href="#platform" onClick={scrollToTop} aria-label="Go to home">
-          <img src="/images/anantalink-logo.svg" alt="AnantaLink Logo" className="h-10 cursor-pointer" />
+         <a href="#platform" onClick={scrollToTop} aria-label="Go to home"  className="flex flex-col items-center text-center">
+          <img src="/images/anantlink-logo.svg" alt="anantlink Logo" className="h-10 cursor-pointer"/>
+                          <span className="text-xs text-slate-400 mt-0.5 leading-tight">
+                  Innovating care with connected solutions
+                </span>
         </a>
 
         <ul className={`hidden md:flex space-x-8 ${darkMode ? "text-slate-300" : "text-slate-600"}`}>
@@ -215,13 +218,16 @@ export default function AnantaLinkWebsite() {
               transition={{ type: "spring", stiffness: 120 }}
             >
               <div className="flex items-center justify-between mb-8">
-                <a href="#platform" onClick={scrollToTop} aria-label="Go to home">
-                <img src="/images/anantalink-logo.svg" alt="AnantaLink Logo" className="h-10" />
-                </a>
+                 <a href="#platform" onClick={scrollToTop} aria-label="Go to home" className="flex flex-col items-start">
+                  <img src="/images/anantlink-logo.svg" alt="anantlink Logo" className="h-10 cursor-pointer" />
+                  <span className="text-xs text-slate-400 mt-0.5 leading-tight">Innovating care with connected solutions</span>
+                </a> 
+                
                 <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
                   <X />
                 </button>
               </div>
+ 
               <ul className="flex flex-col gap-6 text-lg">
                 {navItems.map((item) => (
                   <li key={item.href}>
@@ -239,7 +245,7 @@ export default function AnantaLinkWebsite() {
       {/* Platform / Hero */}
       <section id="platform" className="px-8 py-28 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div>
-          <img src="/images/anantalink-logo.svg" alt="AnantaLink Logo" className="h-14 mb-6" />
+          <img src="/images/anantlink-logo.svg" alt="anantlink Logo" className="h-14 mb-6" />
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -247,7 +253,7 @@ export default function AnantaLinkWebsite() {
             transition={{ duration: 0.6 }}
             className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight"
           >
-            AnantaLink – SmartCare IoMT Ecosystem
+            anantlink – SmartCare IoMT Ecosystem
           </motion.h1>
 
           <p className="text-xl text-slate-300 max-w-3xl mb-10">
@@ -272,8 +278,8 @@ export default function AnantaLinkWebsite() {
       <section className="px-8 py-20 bg-[#020617]">
         <div className="mb-12 max-w-7xl mx-auto rounded-2xl overflow-hidden shadow">
           <img
-            src="images/anantalink-iomt-architecture.png"
-            alt="AnantaLink modular IoMT architecture"
+            src="images/anantlink-iomt-architecture.png"
+            alt="anantlink modular IoMT architecture"
             className="w-full object-contain bg-white"
           />
         </div>
@@ -428,43 +434,43 @@ export default function AnantaLinkWebsite() {
       <footer className="px-8 py-16 bg-black text-slate-400">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
           <div>
-            <p>© {new Date().getFullYear()} AnantaLink Technology Pvt. Ltd.</p>
+            <p>© {new Date().getFullYear()} anantlink Technology Pvt. Ltd.</p>
             <p className="mt-1">Modular. Predictive. Built for Indian healthcare reality.</p>
           </div>
 
           <div className="flex items-center gap-6">
             <a
-              href="https://www.linkedin.com/company/anantalink"
+              href="https://www.linkedin.com/company/anantlink"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="AnantaLink LinkedIn"
+              aria-label="anantlink LinkedIn"
               className="hover:text-white transition"
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="https://twitter.com/anantalink"
+              href="https://twitter.com/anantlink"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="AnantaLink Twitter"
+              aria-label="anantlink Twitter"
               className="hover:text-white transition"
             >
               <Twitter className="w-5 h-5" />
             </a>
             <a
-              href="https://www.youtube.com/@anantalink"
+              href="https://www.youtube.com/@anantlink"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="AnantaLink YouTube"
+              aria-label="anantlink YouTube"
               className="hover:text-white transition"
             >
               <Youtube className="w-5 h-5" />
             </a>
             <a
-              href="https://www.instagram.com/anantalink"
+              href="https://www.instagram.com/anantlink"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="AnantaLink Instagram"
+              aria-label="anantlink Instagram"
               className="hover:text-white transition"
             >
               <Instagram className="w-5 h-5" />

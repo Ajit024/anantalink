@@ -2,51 +2,51 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- <url>
-    <loc>https://anantalink.com/</loc>
+    <loc>https://anantlink.com/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://anantalink.com/#platform</loc>
+    <loc>https://anantlink.com/#platform</loc>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://anantalink.com/#solutions</loc>
+    <loc>https://anantlink.com/#solutions</loc>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://anantalink.com/#architecture</loc>
+    <loc>https://anantlink.com/#architecture</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://anantalink.com/#contact</loc>
+    <loc>https://anantlink.com/#contact</loc>
     <priority>0.8</priority>
   </url> -->
 
   <url>
-    <loc>https://anantalink.vercel.app/</loc>
+    <loc>https://anantlink.vercel.app/</loc>
     <priority>1.0</priority>
   </url>
 
    <url>
-    <loc>https://anantalink.vercel.app/#platform</loc>
+    <loc>https://anantlink.vercel.app/#platform</loc>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://anantalink.vercel.app/#solutions</loc>
+    <loc>https://anantlink.vercel.app/#solutions</loc>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://anantalink.vercel.app/#architecture</loc>
+    <loc>https://anantlink.vercel.app/#architecture</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://anantalink.vercel.app/#contact</loc>
+    <loc>https://anantlink.vercel.app/#contact</loc>
     <priority>0.8</priority>
   </url>
 
