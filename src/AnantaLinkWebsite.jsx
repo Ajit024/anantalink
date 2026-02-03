@@ -220,7 +220,6 @@ export default function anantlinkWebsite() {
               <div className="flex items-center justify-between mb-8">
                  <a href="#platform" onClick={scrollToTop} aria-label="Go to home" className="flex flex-col items-start">
                   <img src="/images/anantlink-logo.svg" alt="anantlink Logo" className="h-10 cursor-pointer" />
-                  <span className="text-xs text-slate-400 mt-0.5 leading-tight">Innovating care with connected solutions</span>
                 </a> 
                 
                 <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
@@ -253,7 +252,7 @@ export default function anantlinkWebsite() {
             transition={{ duration: 0.6 }}
             className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight"
           >
-            anantlink – SmartCare IoMT Ecosystem
+            Anantlink – SmartCare IoMT Ecosystem
           </motion.h1>
 
           <p className="text-xl text-slate-300 max-w-3xl mb-10">
