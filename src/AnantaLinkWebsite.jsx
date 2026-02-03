@@ -271,10 +271,11 @@ export default function anantlinkWebsite() {
             className="w-full h-full object-cover"
           />
         </div>
-      </section>
+ 
+</section>
 
       {/* Vision & Mission */}
-      <section id="vision-mission" className="px-8 py-28 max-w-7xl mx-auto">
+      <section id="vision-mission" className="px-8 py-0 max-w-7xl mx-auto">
       <h2 className="text-3xl font-bold mb-4 text-emerald-800">Our Vision & Mission</h2>
       <p className="text-slate-400 mb-12 max-w-3xl">
         At anantlink, our vision is to revolutionize healthcare delivery by empowering hospitals with intelligent IoMT solutions that enhance patient care, optimize operations, and drive compliance.
@@ -313,11 +314,19 @@ export default function anantlinkWebsite() {
             </CardContent>
           </Card>
         </div>
+
+                <div className="mt-16 rounded-2xl overflow-hidden">
+        <img
+          src="/images/Vision.png"
+          alt="Bedside patient monitoring with wearable medical devices and real-time vitals display"
+          className="w-full object-cover"
+        />
+      </div>
       </section>
 
       {/* Solutions */}
       <section id="solutions" className="px-8 py-28 max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold mb-4 text-emerald-800">Healthcare Solutions Portfolio</h2>
+        <h2 className="text-3xl font-bold mb-4 text-emerald-800">Solutions → Patient Safety & Care</h2>
         <p className="text-slate-400 mb-12 max-w-3xl">
           Purpose-built IoMT modules exclusively for hospitals and healthcare systems.
           No cross-industry dilution. No generic IoT compromises.
@@ -363,13 +372,26 @@ export default function anantlinkWebsite() {
             </CardContent>
           </Card>
         </div>
+
+        <div className="mt-16 rounded-2xl overflow-hidden">
+        <img
+          src="/images/monitoring-bedside.png"
+          alt="Bedside patient monitoring with wearable medical devices and real-time vitals display"
+          className="w-full object-cover"
+        />
+      </div>
+
       </section>
 
       {/* Architecture */}
       <section id="architecture" className="px-8 py-24 bg-[#020617]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-10 text-emerald-800">Modular Architecture</h2>
-
+          <p className="text-slate-400 mb-12 max-w-3xl">
+            Anantlink's modular IoMT architecture is designed to seamlessly integrate
+            with existing hospital infrastructure, providing scalable and flexible
+            solutions that grow with your healthcare facility's needs.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card>
               <CardContent>
@@ -404,14 +426,8 @@ export default function anantlinkWebsite() {
               </CardContent>
             </Card>
           </div>
-
-          
+          <p className="text-slate-400 mt-12 max-w-3xl"></p>
         </div>
-          <p className="text-slate-400 max-w-3xl mx-auto mb-8 mt-16">
-            Anantlink's modular IoMT architecture is designed to seamlessly integrate
-            with existing hospital infrastructure, providing scalable and flexible
-            solutions that grow with your healthcare facility's needs.
-          </p>
           <div className="mb-12 max-w-7xl mx-auto rounded-2xl overflow-hidden shadow">
           <img
             src="images/anantlink-iomt-architecture.png"
