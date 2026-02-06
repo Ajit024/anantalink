@@ -163,6 +163,7 @@ export default function anantlinkWebsite() {
 
   const navItems = [
     { label: "Platform", href: "#platform" },
+    { label: "Products", href: "#products" },
     { label: "Solutions", href: "#solutions" },
     { label: "Architecture", href: "#architecture" },
     { label: "Contact", href: "#contact" },
@@ -274,6 +275,53 @@ export default function anantlinkWebsite() {
  
 </section>
 
+ {/* Products */}
+      <section id="products" className="px-8 py-28 max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold mb-4 text-emerald-800">Products</h2>
+        <p className="text-slate-400 mb-12 max-w-3xl">
+          Modular, hospital-grade IoMT products designed to deploy independently or as a unified platform.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <Card>
+            <CardContent>
+              <Activity className="w-10 h-10 mb-4 text-emerald-700" />
+              <h3 className="text-xl font-semibold mb-2">Patient Monitoring Module</h3>
+              <p className="text-slate-400">
+                Wearable and bedside devices for continuous vitals monitoring with real-time alerts and EMR-ready data.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent>
+              <Map className="w-10 h-10 mb-4 text-emerald-700" />
+              <h3 className="text-xl font-semibold mb-2">RTLS & Asset Tracking</h3>
+              <p className="text-slate-400">
+                Real-time location services for equipment, patients, and staff to reduce loss and improve utilization.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent>
+              <Cpu className="w-10 h-10 mb-4 text-emerald-700" />
+              <h3 className="text-xl font-semibold mb-2">Edge Gateway & IoMT Hub</h3>
+              <p className="text-slate-400">
+                Secure edge gateways that aggregate device data and ensure low-latency, reliable hospital connectivity.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+        <div className="mt-16 rounded-2xl overflow-hidden">
+        <img
+          src="/images/products.png"
+          alt="Bedside patient monitoring with wearable medical devices and real-time vitals display"
+          className="w-full object-cover"
+        />
+      </div>
+      </section>
+
       {/* Vision & Mission */}
       <section id="vision-mission" className="px-8 py-0 max-w-7xl mx-auto">
       <h2 className="text-3xl font-bold mb-4 text-emerald-800">Our Vision & Mission</h2>
@@ -315,7 +363,7 @@ export default function anantlinkWebsite() {
           </Card>
         </div>
 
-                <div className="mt-16 rounded-2xl overflow-hidden">
+        <div className="mt-16 rounded-2xl overflow-hidden">
         <img
           src="/images/Vision.png"
           alt="Bedside patient monitoring with wearable medical devices and real-time vitals display"
