@@ -286,7 +286,8 @@ export default function anantlinkWebsite() {
           <Card>
             <CardContent>
               <Activity className="w-10 h-10 mb-4 text-emerald-700" />
-              <h3 className="text-xl font-semibold mb-2">Patient Monitoring Module</h3>
+              <a href="/products/patient-monitoring">
+              <h3 className="text-xl font-semibold mb-2">Patient Monitoring Module</h3></a>
               <p className="text-slate-400">
                 Wearable and bedside devices for continuous vitals monitoring with real-time alerts and EMR-ready data.
               </p>
@@ -296,7 +297,8 @@ export default function anantlinkWebsite() {
           <Card>
             <CardContent>
               <Map className="w-10 h-10 mb-4 text-emerald-700" />
-              <h3 className="text-xl font-semibold mb-2">RTLS & Asset Tracking</h3>
+              <a href="/products/rtls">
+              <h3 className="text-xl font-semibold mb-2">RTLS & Asset Tracking</h3></a>
               <p className="text-slate-400">
                 Real-time location services for equipment, patients, and staff to reduce loss and improve utilization.
               </p>
@@ -306,7 +308,8 @@ export default function anantlinkWebsite() {
           <Card>
             <CardContent>
               <Cpu className="w-10 h-10 mb-4 text-emerald-700" />
-              <h3 className="text-xl font-semibold mb-2">Edge Gateway & IoMT Hub</h3>
+              <a href="/products/edge-gateway">
+              <h3 className="text-xl font-semibold mb-2">Edge Gateway & IoMT Hub</h3></a>
               <p className="text-slate-400">
                 Secure edge gateways that aggregate device data and ensure low-latency, reliable hospital connectivity.
               </p>
