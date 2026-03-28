@@ -69,6 +69,7 @@ export default function Contact() {
         EMAILJS_PUBLIC_KEY
       )
       setSent(true)
+      
     } catch (err) {
       console.error('EmailJS error:', err)
       setSendError('Something went wrong. Please email us directly at contact@anantlink.com')
@@ -157,7 +158,9 @@ export default function Contact() {
                     Thank you for reaching out.
                   </h3>
                   <p style={{ color:'var(--text-secondary)', fontSize:15, lineHeight:1.75, maxWidth:340, margin:'0 auto' }}>
-                    We've received your message and will reply within one business day — usually sooner.
+                    {/* We've received your message and will reply within one business day — usually sooner. */}
+                    <p>From web email isn't working. Please email us directly at contact@anantlink.com or reach out on whatsapp at +91 91487-14987.</p>
+                    <p>Sorry for the inconvenience, and thank you for your interest in AnantLink!</p>
                   </p>
                   <button onClick={reset} className="btn btn-ghost" style={{ marginTop:24 }}>
                     Send another message
