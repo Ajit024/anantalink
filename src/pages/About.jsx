@@ -8,18 +8,19 @@ const VALUES = [
 ]
 
 const MILESTONES = [
-  { year:'2021', event:'Anantlink founded in Bengaluru by engineers and clinicians tired of watching hospitals run on paper and guesswork.' },
-  { year:'2022', event:'First pilot deployment at a 200-bed tertiary care hospital in Karnataka — patient monitoring and asset tracking.' },
-  { year:'2023', event:'RTLS and automation modules launched. Expanded to multi-building hospital campuses.' },
-  { year:'2024', event:'Digital Twin and AI Analytics added. Deployments across multiple states. Series A process begun.' },
-  { year:'2025', event:'NABH technology partner conversations underway. Actively recruiting pilot hospital partners across India.' },
+  { year:'2026', event:'Anantlink founded by engineers and clinicians tired of watching hospitals run on paper and guesswork.' },
+  // { year:'2022', event:'First pilot deployment at a 200-bed tertiary care hospital in Karnataka — patient monitoring and asset tracking.' },
+  // { year:'2023', event:'RTLS and automation modules launched. Expanded to multi-building hospital campuses.' },
+  // { year:'2024', event:'Digital Twin and AI Analytics added. Deployments across multiple states. Series A process begun.' },
+  // { year:'2025', event:'NABH technology partner conversations underway. Actively recruiting pilot hospital partners across India.' },
 ]
 
 const TEAM = [
-  { name:'Rajan Menon', role:'Co-Founder & CEO', bg:'Former IoT architect at Bosch Healthcare. Built industrial sensor networks for 8 years. IIT Madras.' },
-  { name:'Dr. Priya Nair', role:'Co-Founder & CMO', bg:'Intensivist and clinical informaticist. Spent a decade in ICU care watching data gaps cost lives. AIIMS trained.' },
-  { name:'Suresh Iyer', role:'CTO', bg:'15 years in embedded systems and wireless networking. Ex-Cisco. Knows what breaks in the field.' },
-  { name:'Ananya Rao', role:'Head of Product', bg:'Healthcare UX designer who has spent years in hospital corridors watching workflows. IIM Bangalore MBA.' },
+  { name:'Ajit', role:'Co-Founder & CEO', bg:'' },
+  { name:'Sushma Kumari', role:'Co-Founder & CEO', bg:'' },
+  // { name:'Dr. Priya Nair', role:'Co-Founder & CMO', bg:'Intensivist and clinical informaticist. Spent a decade in ICU care watching data gaps cost lives. AIIMS trained.' },
+  // { name:'Suresh Iyer', role:'CTO', bg:'15 years in embedded systems and wireless networking. Ex-Cisco. Knows what breaks in the field.' },
+  // { name:'Ananya Rao', role:'Head of Product', bg:'Healthcare UX designer who has spent years in hospital corridors watching workflows. IIM Bangalore MBA.' },
 ]
 
 export default function About() {
