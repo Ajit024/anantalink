@@ -1,28 +1,46 @@
-// import AnantaLinkWebsite from './AnantaLinkWebsite'
-// export default function App() {
-  // return <AnantaLinkWebsite />
-// }
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import Solutions from './pages/Solutions'
+import About from './pages/About'
+import Contact from './pages/Contact'
 
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import AnantaLinkWebsite from "./AnantaLinkWebsite";
-import PatientMonitoring from "./products/PatientMonitoring";
-import RTLS from "./products/RTLS";
-import EdgeGateway from "./products/EdgeGateway";
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  return null
+}
 
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
+      {/* Dev stage banner */}
+      <div style={{
+        background: 'var(--teal-dark)',
+        color: '#d2dbc8',
+        textAlign: 'center',
+        padding: '8px 20px',
+        fontSize: 12,
+        fontFamily: 'var(--font-body)',
+        fontWeight: 500,
+        letterSpacing: '0.02em',
+      }}>
+        🚧 &nbsp;We're currently building something meaningful. Early access &amp; partnerships welcome —{' '}
+        <a href="/contact" style={{ color: '#f8f8ec', fontWeight: 700, textDecoration: 'underline' }}>
+          get in touch
+        </a>
+      </div>
+      <Navbar />
       <Routes>
-        {/* Home */}
-        <Route path="/" element={<AnantaLinkWebsite />} />
-
-        {/* Product Pages */}
-        <Route path="/products/patient-monitoring" element={<PatientMonitoring />} />
-        <Route path="/products/rtls" element={<RTLS />} />
-        <Route path="/products/edge-gateway" element={<EdgeGateway />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/solutions" element={<Solutions />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
-  );
+  )
 }
