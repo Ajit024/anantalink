@@ -33,7 +33,7 @@ export default function Navbar() {
       borderBottom: scrolled ? '1px solid var(--border-soft)' : '1px solid transparent',
       boxShadow: scrolled ? '0 1px 12px rgba(58,90,100,0.08)' : 'none',
     }}>
-      <div className="container" style={{ display:'flex', alignItems:'center', height: 68 }}>
+      <div className="container" style={{ display:'flex', alignItems:'center', height: 70 }}>
 
         {/* Logo — using actual brand image */}
         <Link to="/" style={{ display:'flex', alignItems:'center', flex:'none' }}>
@@ -41,7 +41,7 @@ export default function Navbar() {
             src="/LogoWSalogan.png"
             alt="Anantlink — Innovating Care with Connected Solutions"
             style={{
-              height: 44,
+              height: 60,
               width: 'auto',
               /* The logo has black bg — multiply blends it away on light bg */
               mixBlendMode: 'multiply',
