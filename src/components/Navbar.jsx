@@ -38,7 +38,7 @@ export default function Navbar() {
         {/* Logo — using actual brand image */}
         <Link to="/" style={{ display:'flex', alignItems:'center', flex:'none' }}>
           <img
-            src="/LogoWSalogan.png"
+            src="/images/LogoWSalogan.png"
             alt="Anantlink — Innovating Care with Connected Solutions"
             style={{
               height: 60,

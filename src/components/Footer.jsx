@@ -32,7 +32,7 @@ export default function Footer() {
           <div>
             <Link to="/" style={{ display:'block', marginBottom:18 }}>
               <img
-                src="/LogoWSalogan.png"
+                src="/images/logoNslogan.png"
                 alt="Anantlink"
                 style={{
                   height: 48,
