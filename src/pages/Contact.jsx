@@ -1,4 +1,11 @@
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
+
+// ── Replace these three values with yours from emailjs.com ────────────────────
+const EMAILJS_SERVICE_ID  = 'service_vu7phko'   // e.g. 'service_abc123'
+const EMAILJS_TEMPLATE_ID = 'template_sap8plq'  // e.g. 'template_xyz789'
+const EMAILJS_PUBLIC_KEY  = 'E87xiLqgL7OvXp5Io'   // e.g. 'aBcDeFgHiJkLmNoP'
+// ─────────────────────────────────────────────────────────────────────────────
 
 const INTERESTS = [
   'Patient Monitoring',
