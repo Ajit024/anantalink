@@ -16,8 +16,8 @@ const MILESTONES = [
 ]
 
 const TEAM = [
-  { name:'Ajit', role:'Co-Founder & CEO', bg:'' },
   { name:'Sushma Kumari', role:'Co-Founder & CEO', bg:'' },
+  { name:'Ajit', role:'Co-Founder & CTO', bg:'' },
   // { name:'Dr. Priya Nair', role:'Co-Founder & CMO', bg:'Intensivist and clinical informaticist. Spent a decade in ICU care watching data gaps cost lives. AIIMS trained.' },
   // { name:'Suresh Iyer', role:'CTO', bg:'15 years in embedded systems and wireless networking. Ex-Cisco. Knows what breaks in the field.' },
   // { name:'Ananya Rao', role:'Head of Product', bg:'Healthcare UX designer who has spent years in hospital corridors watching workflows. IIM Bangalore MBA.' },
