@@ -44,13 +44,20 @@ export default function Contact() {
 
     // Keys must match {{variable}} names in your EmailJS template
     const templateParams = {
-      from_name:    form.name,
-      organisation: form.org,
-      from_email:   form.email,
-      phone:        form.phone    || 'Not provided',
-      beds:         form.beds     || 'Not specified',
-      interest:     form.interest || 'Not specified',
-      message:      form.message  || 'No message provided',
+      // from_name:    form.name,
+      // organisation: form.org,
+      // from_email:   form.email,
+      // phone:        form.phone    || 'Not provided',
+      // beds:         form.beds     || 'Not specified',
+      // interest:     form.interest || 'Not specified',
+      // message:      form.message  || 'No message provided',
+      user_name:     form.name,
+      user_org:      form.org,
+      user_email:    form.email,
+      user_phone:    form.phone    || 'Not provided',
+      user_beds:     form.beds     || 'Not specified',
+      user_interest: form.interest || 'Not specified',
+      user_message:  form.message  || 'No message provided',
       reply_to:     form.email,
     }
 
