@@ -21,22 +21,53 @@ const INTERESTS = [
 ]
 
 export default function Contact() {
-  const [form, setForm]   = useState({ name:'', org:'', email:'', phone:'', beds:'', interest:'', message:'' })
-  const [sent, setSent]   = useState(false)
-  const [errors, setErrors] = useState({})
+  const [form, setForm]       = useState({ name:'', org:'', email:'', phone:'', beds:'', interest:'', message:'' })
+  const [sent, setSent]       = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [errors, setErrors]   = useState({})
+  const [sendError, setSendError] = useState('')
 
   const validate = () => {
     const e = {}
     if (!form.name.trim()) e.name = 'Your name helps us address you properly'
-    if (!form.org.trim())  e.org  = 'We would love to know where you work'
-    if (!/\S+@\S+\.\S+/.test(form.email)) e.email = 'We will need a valid email to reply'
+    if (!form.org.trim())  e.org  = "We'd love to know where you work"
+    if (!/\S+@\S+\.\S+/.test(form.email)) e.email = "We'll need a valid email to reply"
     return e
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const e = validate()
     if (Object.keys(e).length) { setErrors(e); return }
-    setSent(true)
+
+    setLoading(true)
+    setSendError('')
+
+    // Keys must match {{variable}} names in your EmailJS template
+    const templateParams = {
+      from_name:    form.name,
+      organisation: form.org,
+      from_email:   form.email,
+      phone:        form.phone    || 'Not provided',
+      beds:         form.beds     || 'Not specified',
+      interest:     form.interest || 'Not specified',
+      message:      form.message  || 'No message provided',
+      reply_to:     form.email,
+    }
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      )
+      setSent(true)
+    } catch (err) {
+      console.error('EmailJS error:', err)
+      setSendError('Something went wrong. Please email us directly at contact@anantlink.com')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const update = (k, v) => {
@@ -44,9 +75,15 @@ export default function Contact() {
     setErrors(e => ({ ...e, [k]: undefined }))
   }
 
+  const reset = () => {
+    setSent(false)
+    setSendError('')
+    setForm({ name:'', org:'', email:'', phone:'', beds:'', interest:'', message:'' })
+  }
+
   return (
     <main>
-      {/* ── HERO ──────────────────────────────────── */}
+      {/* ── HERO ── */}
       <section style={{ position:'relative', padding:'80px 0 56px', background:'var(--bg-surface)', overflow:'hidden' }}>
         <div className="dot-bg" />
         <div className="container" style={{ position:'relative', zIndex:1 }}>
@@ -55,52 +92,44 @@ export default function Contact() {
             Let's find out if we're a good fit.
           </h1>
           <p style={{ color:'var(--text-secondary)', fontSize:17, maxWidth:460, lineHeight:1.75 }}>
-            We're an early-stage team and we take every conversation seriously. 
+            We're an early-stage team and we take every conversation seriously.
             Tell us about your hospital and what you're trying to improve.
           </p>
         </div>
       </section>
 
-      {/* ── CONTENT ───────────────────────────────── */}
+      {/* ── CONTENT ── */}
       <section style={{ padding:'56px 0 96px' }}>
         <div className="container">
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1.35fr', gap:56, alignItems:'start' }} className="contact-grid">
 
             {/* Left */}
             <div>
-              <h2 style={{ fontFamily:'var(--font-head)', fontSize:22, fontWeight:400, marginBottom:28, color:'var(--text-primary)' }}>
+              <h2 style={{ fontFamily:'var(--font-head)', fontSize:22, fontWeight:400, marginBottom:28 }}>
                 How we engage
               </h2>
               {[
-                { icon:'📞', title:'Discovery call', desc:'30 minutes to understand your hospital, your challenges, and whether we can genuinely help.' },
-                { icon:'🗺️', title:'Solution mapping', desc:"We map your workflows to specific modules and give you an honest deployment estimate." },
-                { icon:'🚀', title:'90-day pilot', desc:'Start with one department. Measure what changes before committing to anything larger.' },
+                { icon:'📞', title:'Discovery call',       desc:'30 minutes to understand your hospital, your challenges, and whether we can genuinely help.' },
+                { icon:'🗺️', title:'Solution mapping',     desc:"We map your workflows to specific modules and give you an honest deployment estimate." },
+                { icon:'🚀', title:'90-day pilot',         desc:'Start with one department. Measure what changes before committing to anything larger.' },
                 { icon:'⚙️', title:'Full rollout & support', desc:'On-site installation, 24×7 support, and a dedicated person who knows your hospital.' },
               ].map(s => (
                 <div key={s.title} style={{
                   display:'flex', gap:16, padding:'18px 20px', marginBottom:12,
-                  background:'var(--bg-card)',
-                  border:'1px solid var(--border-soft)',
+                  background:'var(--bg-card)', border:'1px solid var(--border-soft)',
                   borderRadius:10, boxShadow:'var(--shadow-sm)',
                 }}>
                   <span style={{ fontSize:20, flex:'none' }}>{s.icon}</span>
                   <div>
-                    <h4 style={{ fontFamily:'var(--font-body)', fontSize:15, fontWeight:600, marginBottom:4 }}>{s.title}</h4>
+                    <h4 style={{ fontSize:15, fontWeight:600, marginBottom:4 }}>{s.title}</h4>
                     <p style={{ color:'var(--text-secondary)', fontSize:13, lineHeight:1.65 }}>{s.desc}</p>
                   </div>
                 </div>
               ))}
 
-              {/* Direct contact box */}
-              <div style={{
-                marginTop:28, padding:'22px',
-                background:'linear-gradient(135deg, var(--cream) 0%, var(--sage) 100%)',
-                border:'1px solid var(--border)',
-                borderRadius:12,
-              }}>
-                <h4 style={{ fontFamily:'var(--font-body)', fontSize:14, fontWeight:700, marginBottom:14, color:'var(--teal-dark)' }}>Direct contact</h4>
+              <div style={{ marginTop:28, padding:'22px', background:'linear-gradient(135deg, var(--cream) 0%, var(--sage) 100%)', border:'1px solid var(--border)', borderRadius:12 }}>
+                <h4 style={{ fontSize:14, fontWeight:700, marginBottom:14, color:'var(--teal-dark)' }}>Direct contact</h4>
                 <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
-                  
                   <FRow e="📞" t="+91 91487-14987 (whatsapp only)" />
                   <FRow e="✉️" t="contact@anantlink.com" />
                   <FRow e="📍" t="Bengaluru, Karnataka, India" />
@@ -113,12 +142,7 @@ export default function Contact() {
             </div>
 
             {/* Right — form */}
-            <div style={{
-              background:'var(--bg-card)',
-              border:'1px solid var(--border-soft)',
-              borderRadius:16, padding:'40px',
-              boxShadow:'var(--shadow-card)',
-            }}>
+            <div style={{ background:'var(--bg-card)', border:'1px solid var(--border-soft)', borderRadius:16, padding:'40px', boxShadow:'var(--shadow-card)' }}>
               {sent ? (
                 <div style={{ textAlign:'center', padding:'40px 0' }}>
                   <div style={{ fontSize:48, marginBottom:18 }}>🙏</div>
@@ -126,13 +150,9 @@ export default function Contact() {
                     Thank you for reaching out.
                   </h3>
                   <p style={{ color:'var(--text-secondary)', fontSize:15, lineHeight:1.75, maxWidth:340, margin:'0 auto' }}>
-                    We read every message carefully. Someone from the team — likely a co-founder — 
-                    will reply within one business day.
+                    We've received your message and will reply within one business day — usually sooner.
                   </p>
-                  <button
-                    onClick={() => { setSent(false); setForm({ name:'', org:'', email:'', phone:'', beds:'', interest:'', message:'' }) }}
-                    className="btn btn-ghost"
-                    style={{ marginTop:24 }}>
+                  <button onClick={reset} className="btn btn-ghost" style={{ marginTop:24 }}>
                     Send another message
                   </button>
                 </div>
@@ -181,16 +201,31 @@ export default function Contact() {
                     <Field label="What are you trying to solve?">
                       <textarea
                         placeholder="Tell us about the operational challenges you face. What breaks down most? What would make the biggest difference?"
-                        rows={4}
-                        value={form.message}
+                        rows={4} value={form.message}
                         onChange={e=>update('message',e.target.value)}
                         style={{...inp(false), resize:'vertical', minHeight:100}}
                       />
                     </Field>
-                    <button onClick={handleSubmit} className="btn btn-primary"
-                      style={{ width:'100%', justifyContent:'center', fontSize:15, marginTop:4 }}>
-                      Send message →
+
+                    {/* Send error */}
+                    {sendError && (
+                      <div style={{ padding:'12px 16px', background:'#fef2f2', border:'1px solid #fecaca', borderRadius:8, fontSize:13, color:'#b91c1c', lineHeight:1.5 }}>
+                        {sendError}
+                      </div>
+                    )}
+
+                    <button
+                      onClick={handleSubmit}
+                      disabled={loading}
+                      className="btn btn-primary"
+                      style={{ width:'100%', justifyContent:'center', fontSize:15, marginTop:4, opacity:loading?0.75:1, cursor:loading?'not-allowed':'pointer' }}
+                    >
+                      {loading
+                        ? <><Spinner /> Sending…</>
+                        : 'Send message →'
+                      }
                     </button>
+
                     <p style={{ color:'var(--text-muted)', fontSize:12, textAlign:'center' }}>
                       No sales pressure. No spam. Just a conversation.
                     </p>
@@ -203,16 +238,19 @@ export default function Contact() {
       </section>
 
       <style>{`
-        @media(max-width:768px){.contact-grid{grid-template-columns:1fr!important;}}
-        input::placeholder,textarea::placeholder{color:var(--text-muted);}
-        input:focus,select:focus,textarea:focus{
-          outline:none; border-color:var(--accent)!important;
-          box-shadow:0 0 0 3px rgba(29,124,192,0.1);
+        @media(max-width:768px){ .contact-grid{ grid-template-columns:1fr !important; } }
+        input::placeholder, textarea::placeholder { color: var(--text-muted); }
+        input:focus, select:focus, textarea:focus {
+          outline: none; border-color: var(--accent) !important;
+          box-shadow: 0 0 0 3px rgba(29,124,192,0.1);
         }
+        @keyframes spin { to { transform: rotate(360deg); } }
       `}</style>
     </main>
   )
 }
+
+/* ── Helpers ── */
 
 const inp = hasError => ({
   width:'100%', padding:'11px 13px',
@@ -222,6 +260,18 @@ const inp = hasError => ({
   fontFamily:'var(--font-body)', fontSize:14,
   transition:'border-color 0.2s, box-shadow 0.2s',
 })
+
+function Spinner() {
+  return (
+    <span style={{
+      width:15, height:15, borderRadius:'50%',
+      border:'2px solid rgba(255,255,255,0.4)',
+      borderTopColor:'#fff', display:'inline-block',
+      animation:'spin 0.7s linear infinite',
+      marginRight:6,
+    }} />
+  )
+}
 
 function Row2({ children }) {
   return <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:14 }}>{children}</div>
