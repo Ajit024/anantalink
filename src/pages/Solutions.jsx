@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 const SOLUTIONS = [
+
   {
     id: 'monitoring',
     icon: '🫀',
@@ -17,6 +18,69 @@ const SOLUTIONS = [
       'Historical vital trend review for handovers',
     ],
     metrics: [{ v:'<2s', l:'Alert latency'}, {v:'98%', l:'Sensor uptime'}, {v:'70%', l:'Faster response time'}],
+  },
+  {
+    id: 'vsm',
+    icon: '💓',
+    tag: 'Clinical Monitoring',
+    title: 'Vital Sign Monitoring',
+    subtitle: 'Vitals should move faster than paperwork.',
+    desc: 'Continuous monitoring of SpO₂, heart rate, ECG, blood pressure, temperature, respiratory rate, and fall alerts. Real-time dashboards and automated alerts help nurses focus on patients instead of running around with clipboards like it is still 1998.',
+    features: [
+      'Continuous ECG and heart rate monitoring',
+      'Blood pressure and SpO₂ tracking',
+      'Temperature and respiratory monitoring',
+      'Wireless bedside and wearable device support',
+      'Threshold-based alerts and escalation',
+      'EMR and nurse station integration',
+    ],
+    metrics: [
+      { v: 'Real-time', l: 'Monitoring updates' },
+      { v: '<5 sec', l: 'Alert trigger time' },
+      { v: '90%', l: 'Faster clinical response' },
+    ],
+  },
+     {
+    id: 'self-kiosk',
+    icon: '🖥️🧍',
+    tag: 'Patient Experience',
+    title: 'Self Service Kiosk',
+    subtitle: 'Reduce waiting time before staff even step in.',
+    desc: 'Self-service kiosks for patient registration, appointment check-in, token management, billing support, consent forms, and visitor management. Designed for hospitals, clinics, diagnostics centers, and reception areas where queues somehow become a full-time lifestyle.',
+    features: [
+      'Patient self check-in and registration',
+      'Appointment token and queue management',
+      'Insurance and ID verification',
+      'Digital consent form capture',
+      'Visitor and attendant management',
+      'Integration with HIS and billing systems',
+    ],
+    metrics: [
+      { v: '50%', l: 'Less front desk load' },
+      { v: '<2 min', l: 'Average check-in time' },
+      { v: '24/7', l: 'Availability' },
+    ],
+  },
+  {
+    id: 'environmental',
+    icon: '♻️',
+    tag: 'Facility Intelligence',
+    title: 'Environmental Monitoring',
+    subtitle: 'Hospitals are hard enough without temperature and humidity causing chaos.',
+    desc: 'Monitor indoor environmental conditions across wards, ICUs, labs, pharmacies, operation theatres, and storage areas. Ensure compliance, reduce equipment risk, and stop vaccines, medicines, and sensitive devices from quietly suffering in the wrong room conditions.',
+    features: [
+      'Temperature and humidity monitoring',
+      'Air quality and CO₂ tracking',
+      'Differential pressure monitoring for OT and ICU',
+      'Cold storage and vaccine refrigerator alerts',
+      'Water leakage and smoke detection',
+      'Central dashboard with audit logs and reports',
+    ],
+    metrics: [
+      { v: '24/7', l: 'Environment tracking' },
+      { v: 'Instant', l: 'Threshold alerts' },
+      { v: '100%', l: 'Audit visibility' },
+    ],
   },
   {
     id: 'rtls',
@@ -103,6 +167,8 @@ const SOLUTIONS = [
     ],
     metrics: [{ v:'<50ms', l:'Edge latency'}, {v:'AES-128', l:'Encryption'}, {v:'99.9%', l:'Network uptime'}],
   },
+  
+
 ]
 
 export default function Solutions() {
