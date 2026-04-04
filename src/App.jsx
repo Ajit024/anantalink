@@ -6,7 +6,7 @@ import Home from './pages/Home'
 import Solutions from './pages/Solutions'
 import About from './pages/About'
 import Contact from './pages/Contact'
-// import Products from './pages/Products'
+import Demo from './pages/Demo'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -35,12 +35,16 @@ export default function App() {
         </a>
       </div>
       <Navbar />
+      {
+        /* Main content routes */
+      }
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        {/* <Route path="/products" element={<Products />} /> */}
+        <Route path="/demo" element={<Demo />} />
       </Routes>
       <Footer />
     </BrowserRouter>
