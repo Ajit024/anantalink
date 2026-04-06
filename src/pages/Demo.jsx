@@ -25,6 +25,7 @@ const DEMOS = [
     preview: '/images/Dashboard.png',
     video: '/videos/UI.mp4',
   },
+
   {
     id: 'self-kiosk',
     icon: MonitorSmartphone,
@@ -36,17 +37,18 @@ const DEMOS = [
     preview: '/images/selfkioske.png',
     video: '/videos/123.mp4',
   },
-  {
-    id: 'vsm',
-    icon: HeartPulse,
-    tag: 'Clinical Monitoring',
-    title: 'Vital Sign Monitoring',
-    subtitle: 'Continuous patient monitoring with real-time alerts and faster clinical response.',
-    description:
-    'Track heart rate, SpO₂, blood pressure, ECG, respiratory rate, and temperature through connected bedside devices and wearable sensors. Real-time dashboards and automated notifications help care teams respond quickly before a small issue becomes a very expensive meeting.',
-    preview: '/images/vsm.png',
-    video: '/videos/demo-vsm.mp4',
-  },
+{
+  id: 'patient-monitoring',
+  icon: HeartPulse,
+  tag: 'Clinical & Remote Care',
+  title: 'Patient Monitoring',
+  subtitle:
+    'Continuous patient monitoring across hospital beds, wearables, and remote home care.',
+  description:
+    'Track heart rate, SpO₂, blood pressure, ECG, respiratory rate, temperature, glucose levels, medication adherence, and emergency alerts through connected bedside devices, wearable sensors, and remote patient monitoring platforms. Give doctors, nurses, and caregivers a real-time view of patient health both inside and outside the hospital, because apparently the human body refuses to schedule problems only during office hours.',
+  preview: '/images/vsm.png',
+  video: '/videos/demo-vsm.mp4',
+},
   {
     id: 'environmental',
     icon: Thermometer,
