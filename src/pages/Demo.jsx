@@ -79,6 +79,8 @@ export default function Demo() {
   }, [])
 
 const videoSliderRef = useRef(null)
+const heroSliderRef = useRef(null)
+const currentHeroIndex = useRef(0)
 
 const scrollVideos = (direction) => {
   if (!videoSliderRef.current) return
@@ -89,7 +91,43 @@ const scrollVideos = (direction) => {
     left: direction === 'left' ? -scrollAmount : scrollAmount,
     behavior: 'smooth',
   })
+
+  const scrollHeroImages = (direction) => {
+    if (!heroSliderRef.current) return
+
+    const scrollAmount = 420
+
+    heroSliderRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    })
+  }
+
 }
+  const HERO_IMAGES = [
+    '/images/Dashboard.png',
+    '/images/selfkioske.png',
+    '/images/vsmC.png',
+    '/images/Env.png',
+    '/images/infra.png',
+  ]
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    if (!heroSliderRef.current) return
+
+    currentHeroIndex.current =
+      (currentHeroIndex.current + 1) % HERO_IMAGES.length
+
+    const sliderWidth = heroSliderRef.current.getBoundingClientRect().width
+
+    heroSliderRef.current.scrollLeft =
+      sliderWidth * currentHeroIndex.current,
+      behavior = 'smooth'
+  }, 3500)  // }, 5000) // Change image every 5 seconds
+
+  return () => clearInterval(interval)
+}, [])
 
   return (
     <main>
@@ -102,8 +140,120 @@ const scrollVideos = (direction) => {
         }}
       >
         <div className="dot-bg" />
+{/* Hero Section image-slider */}
+        <div
+          className="container hero-section-grid"
+          style={{
+            position: 'relative',
+            zIndex: 1,
+            display: 'grid',
+            gridTemplateColumns: '1.1fr 1fr',
+            gap: 48,
+            alignItems: 'center',
+          }}
+        >
+          <div>
 
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+            <div className="section-label">Product Showcase</div>
+
+            <h1
+              style={{
+                fontSize: 'clamp(34px,5vw,62px)',
+                fontWeight: 400,
+                letterSpacing: '-0.02em',
+                maxWidth: 720,
+                marginBottom: 20,
+                lineHeight: 1.1,
+              }}
+            >
+              Demo gallery for screenshots, walkthroughs, and product videos.
+            </h1>
+
+            <p
+              style={{
+                color: 'var(--text-secondary)',
+                fontSize: 17,
+                maxWidth: 620,
+                lineHeight: 1.75,
+              }}
+            >
+              A dedicated place to showcase product screens, live dashboards, mobile apps,
+              kiosk flows, infrastructure analytics, and demo videos.
+            </p>
+          </div>
+{/* Hero Section image-slider */}
+          <div style={{ 
+            position: 'relative', 
+            minWidth: 0,
+            overflow: 'hidden',
+            borderRadius: 24,
+            width: '600px',
+            height: '400px',
+             }}>
+            <div
+              ref={heroSliderRef}
+              className="hero-slider-row"
+              style={{
+                display: 'grid',
+                gridAutoFlow: 'column',
+                gridAutoColumns: '100%',
+                overflowY: 'hidden',
+                width: '100%',
+                // gap: 16,
+                // overflowX: 'scroll',
+                // scrollSnapType: 'x mandatory',
+                scrollBehavior: 'smooth',
+                transition: 'transform 4s ease-in-out',
+                // scrollbarWidth: 'none',
+                // msOverflowStyle: 'none',
+
+              }}
+            >
+              {HERO_IMAGES.map((image) => (
+                <div
+                  key={image}
+                  style={{
+                    minWidth: '100%',
+                    width: '100%',
+                    flexShrink: 0,
+                    borderRadius: 24,
+                    overflow: 'hidden',
+                    border: '1px solid var(--border-soft)',
+                    background: 'var(--bg-card)',
+                    boxShadow: 'var(--shadow-card)',
+                  }}
+                >
+                  <img
+                    src={image}
+                    alt="Healthcare preview"
+                    style={{
+                      width: '100%',
+                      height: '480px',
+                      objectFit: 'initial',
+                      objectPosition: 'center',
+                      display: 'block',
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div
+              style={{
+                position: 'absolute',
+                bottom: 20,
+                right: 20,
+                display: 'flex',
+                gap: 10,
+              }}
+            >
+            </div>
+          </div>
+          {/* End Hero Section image-slider */}
+        </div>
+        {/* End Hero Section */}
+
+        {/* <div className="container" style={{ position: 'relative', zIndex: 1 }}>
 
 
           <div className="section-label">Product Showcase</div>
@@ -132,7 +282,7 @@ const scrollVideos = (direction) => {
             A dedicated place to showcase product screens, live dashboards, mobile apps,
             kiosk flows, infrastructure analytics, and demo videos.
           </p>
-        </div>
+        </div> */}
       </section>
 
       <section style={{ padding: '56px 0 96px' }}>
@@ -316,6 +466,7 @@ const scrollVideos = (direction) => {
     }
   `}</style>
 </section>
+
     </main>
   )
 }
@@ -482,19 +633,41 @@ function DemoRow({ demo, flip }) {
   
 </div>
 
-      <style>{`
+<style>{`
+        .hero-slider-row::-webkit-scrollbar {
+  display: none;
+}
+
+        .video-slider-row::-webkit-scrollbar {
+          display: none;
+        }
+
         .demo-row:hover {
           box-shadow: var(--shadow-card);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
+          .hero-section-grid {
+            grid-template-columns: 1fr !important;
+          }
+
           .demo-row {
             grid-template-columns: 1fr !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .demo-row {
             padding: 24px !important;
           }
 
           .demo-row > div {
             order: unset !important;
+          }
+
+          .video-slider-row > div {
+            min-width: 300px !important;
+            max-width: 300px !important;
           }
         }
       `}</style>
