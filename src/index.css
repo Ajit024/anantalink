@@ -54,6 +54,18 @@ body {
 .container { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
 .section { padding: 96px 0; position: relative; }
 
+/* ── Responsive base ─────────────────────────── */
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .section { padding: 56px 0; }
+  .btn { padding: 12px 20px; min-height: 44px; }   /* touch target */
+  h1, h2, h3 { overflow-wrap: break-word; }
+}
+@media (max-width: 480px) {
+  .section { padding: 44px 0; }
+  .card { padding: 22px; }
+}
+
 .section-label {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 11px; font-weight: 600; letter-spacing: 0.14em;

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import EcosystemFlow from '../components/EcosystemFlow'
 
 const STATS = [
   { value: '6',       label: 'Platform Modules' },
@@ -149,7 +150,7 @@ export default function Home() {
               </div>
 
               {/* Stat row */}
-              <div className="animate-fade-up delay-4" style={{
+              <div className="animate-fade-up delay-4 stat-row" style={{
                 display:'flex', gap:0, marginTop:52,
                 background:'var(--bg-card)',
                 border:'1px solid var(--border-soft)',
@@ -159,7 +160,7 @@ export default function Home() {
                 boxShadow:'var(--shadow-sm)',
               }}>
                 {STATS.map(({ value, label }, i) => (
-                  <div key={label} style={{
+                  <div key={label} className="stat-cell" style={{
                     padding:'18px 24px',
                     textAlign:'center',
                     borderRight: i < STATS.length-1 ? '1px solid var(--border-soft)' : 'none',
@@ -181,11 +182,20 @@ export default function Home() {
         <style>{`
           @keyframes pulse-soft { 0%,100%{opacity:1} 50%{opacity:0.4} }
           @media(max-width:860px){ .hero-grid{grid-template-columns:1fr!important;} .hero-vis{display:none!important;} }
+          @media(max-width:560px){
+            .stat-row{ display:grid!important; grid-template-columns:1fr 1fr!important; width:100%!important; }
+            .stat-cell{ border-right:none!important; border-bottom:1px solid var(--border-soft); padding:14px 10px!important; }
+            .stat-cell:nth-child(3), .stat-cell:nth-child(4){ border-bottom:none; }
+            .stat-cell:nth-child(odd){ border-right:1px solid var(--border-soft)!important; }
+          }
         `}</style>
       </section>
 
+      {/* ── ECOSYSTEM FLOW ─────────────────────────── */}
+      <EcosystemFlow />
+
       {/* ── SOLUTIONS GRID ─────────────────────────── */}
-      <section className="section" style={{ background:'var(--bg-surface)' }}>
+      <section className="section">
         <div className="container">
           <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-end', flexWrap:'wrap', gap:20, marginBottom:48 }}>
             <div>
