@@ -21,7 +21,7 @@ const DEMOS = [
     title: 'Healthcare Software Platform',
     subtitle: 'One unified interface for operations, analytics, alerts, and patient workflows.',
     description:
-    'Showcase your admin dashboards, mobile apps, nurse station software, analytics portals, reporting systems, and patient engagement platforms. A clean software experience matters because hospitals already deal with enough confusing screens, hidden menus, and buttons that seem personally offended when clicked.',
+    'Admin dashboards, mobile apps, nurse station software, analytics portals, reporting, and patient engagement — one consistent interface. Hospital staff already deal with enough confusing screens; ours are designed to be learned in minutes.',
     preview: '/images/Dashboard.png',
     video: '/videos/UI.mp4',
   },
@@ -33,7 +33,7 @@ const DEMOS = [
     title: 'Self Service Kiosk',
     subtitle: 'Faster registration, shorter queues, and a smoother patient experience from the moment they walk in.',
     description:
-    'Enable patients and visitors to register, check in, verify insurance, print tokens, complete consent forms, and manage appointments without waiting at the front desk. Designed for hospitals, clinics, diagnostics centers, and reception areas where queues somehow multiply faster than staff can respond.',
+    'Patients and visitors register, check in, verify insurance, print tokens, complete consent forms, and manage appointments without waiting at the front desk. Built for hospitals, clinics, diagnostic centres, and high-traffic reception areas.',
     preview: '/images/selfkioske.png',
     video: '/videos/123.mp4',
   },
@@ -45,7 +45,7 @@ const DEMOS = [
   subtitle:
     'Continuous patient monitoring across hospital beds, wearables, and remote home care.',
   description:
-    'Track heart rate, SpO₂, blood pressure, ECG, respiratory rate, temperature, glucose levels, medication adherence, and emergency alerts through connected bedside devices, wearable sensors, and remote patient monitoring platforms. Give doctors, nurses, and caregivers a real-time view of patient health both inside and outside the hospital, because apparently the human body refuses to schedule problems only during office hours.',
+    'Track heart rate, SpO₂, blood pressure, ECG, respiratory rate, temperature, glucose levels, medication adherence, and emergency alerts through connected bedside devices, wearable sensors, and remote monitoring. Doctors, nurses, and caregivers get a real-time view of patient health inside and outside the hospital — around the clock.',
   preview: '/images/vsm.png',
   video: '/videos/demo-vsm.mp4',
 },
@@ -67,7 +67,7 @@ const DEMOS = [
     title: 'Smart Hospital Infrastructure',
     subtitle: 'Connected building systems designed to improve efficiency, safety, and operational visibility.',
     description:
-    'Integrate lighting, HVAC, nurse call systems, occupancy tracking, access control, and room automation into one connected platform. Because no hospital should need six different systems and three separate vendors just to know whether a room is occupied or not.',
+    'Lighting, HVAC, nurse call, occupancy tracking, access control, and room automation on one connected platform — instead of six systems from three vendors just to know whether a room is occupied.',
     preview: '/images/infra.png',
     video: '/videos/demo-building.mp4',
   },
@@ -75,7 +75,7 @@ const DEMOS = [
 
 export default function Demo() {
   useEffect(() => {
-    document.title = 'Demo Gallery | AnantaLink'
+    document.title = 'Demo Gallery | AnantLink'
   }, [])
 
 const videoSliderRef = useRef(null)

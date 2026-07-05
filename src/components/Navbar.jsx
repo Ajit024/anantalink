@@ -40,7 +40,7 @@ export default function Navbar() {
         <Link to="/" style={{ display:'flex', alignItems:'center', flex:'none' }}>
           <img
             src="/images/LogoWSalogan.png"
-            alt="Anantlink — Innovating Care with Connected Solutions"
+            alt="AnantLink — Innovating Care with Connected Solutions"
             style={{
               height: 60,
               width: 'auto',

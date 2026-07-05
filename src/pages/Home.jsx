@@ -1,46 +1,52 @@
 import { Link } from 'react-router-dom'
 
 const STATS = [
-  { value: '40+',   label: 'IoMT Use Cases' },
-  { value: '6',     label: 'Platform Modules' },
-  { value: 'NABH',  label: 'Compliance Ready' },
-  { value: 'India', label: 'Built & Headquartered' },
+  { value: '6',       label: 'Platform Modules' },
+  { value: '1',       label: 'Shared Data Layer' },
+  { value: 'Offline', label: 'Edge-first Design' },
+  { value: 'Open',    label: 'Vendor-neutral APIs' },
 ]
 
 const SOLUTIONS = [
   {
     icon: '🫀',
     tag: 'Clinical',
-    title: 'Patient Monitoring',
+    status: 'In active development',
+    title: 'Patient Monitoring (VSM)',
     desc: 'Continuous vitals from BLE wearables streamed to nurse stations and mobile apps — so care teams can focus on patients, not paperwork.',
+  },
+  {
+    icon: '📊',
+    tag: 'Analytics',
+    status: 'In active development',
+    title: 'Command Dashboard',
+    desc: 'One live view of the whole hospital — patients, devices, alerts, and operational KPIs. From bed forecasts to predictive maintenance.',
   },
   {
     icon: '📡',
     tag: 'Operations',
+    status: 'Planned',
     title: 'RTLS Asset Tracking',
     desc: "Know where every pump, wheelchair, and ventilator is — without asking. Real-time maps that eliminate equipment searches for good.",
   },
   {
     icon: '🏥',
     tag: 'Infrastructure',
+    status: 'Planned',
     title: 'Hospital Automation',
     desc: 'Smart rooms, automated nurse-call routing, code-blue sequencing, and energy management — all running quietly in the background.',
   },
   {
     icon: '🧠',
     tag: 'Intelligence',
+    status: 'Planned',
     title: 'Hospital Digital Twin',
     desc: 'A live replica of your hospital floor. See capacity, movement, and environment data together and make decisions before problems occur.',
   },
   {
-    icon: '📊',
-    tag: 'Analytics',
-    title: 'AI Analytics Dashboard',
-    desc: 'From bed forecasts to predictive maintenance, operational insights that usually take weeks arrive automatically every morning.',
-  },
-  {
     icon: '🔗',
     tag: 'Infrastructure',
+    status: 'Core layer',
     title: 'BLE IoT Infrastructure',
     desc: 'The enterprise-grade wireless mesh everything else depends on. Vendor-agnostic, secure, and designed for complex hospital campuses.',
   },
@@ -54,8 +60,8 @@ const WHY = [
   },
   {
     num: '02',
-    title: "Designed around India's hospitals",
-    desc: 'NABH compliance, ABDM integration, variable power infrastructure, tight budgets. We built for your reality, not a Western hospital blueprint.',
+    title: 'Designed for real hospital conditions',
+    desc: 'Accreditation-ready compliance, resilience to unstable power and patchy networks, pricing that respects tight budgets. We built for your reality.',
   },
   {
     num: '03',
@@ -85,7 +91,7 @@ export default function Home() {
         <div style={{
           position:'absolute', top:-80, right:-100,
           width:500, height:500, borderRadius:'50%',
-          background:'radial-gradient(circle, rgba(29,124,192,0.08) 0%, transparent 70%)',
+          background:'radial-gradient(circle, rgba(20,113,186,0.08) 0%, transparent 70%)',
           pointerEvents:'none',
         }} />
 
@@ -126,9 +132,11 @@ export default function Home() {
                 lineHeight:1.75,
                 marginBottom:40,
               }}>
-                Anantlink brings patient monitoring, asset tracking, automation, and 
-                AI analytics together in one modular platform — built specifically for 
-                how Indian hospitals work.
+                AnantLink is Connected Care Infrastructure — patient monitoring, asset
+                tracking, automation, and AI analytics on one modular platform, built
+                around how hospitals actually work.
+                <br /><br />
+                <strong style={{ color:'var(--teal-dark)' }}>Vendor-neutral. Offline-first. Compliance-native.</strong>
               </p>
 
               <div className="animate-fade-up delay-3" style={{ display:'flex', gap:14, flexWrap:'wrap' }}>
@@ -192,9 +200,14 @@ export default function Home() {
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(300px, 1fr))', gap:18 }}>
             {SOLUTIONS.map(sol => (
               <div key={sol.title} className="card" style={{ cursor:'default' }}>
-                <div style={{ display:'flex', alignItems:'center', gap:12, marginBottom:16 }}>
+                <div style={{ display:'flex', alignItems:'center', gap:12, marginBottom:16, flexWrap:'wrap' }}>
                   <span style={{ fontSize:22 }}>{sol.icon}</span>
                   <span className="tag-sage">{sol.tag}</span>
+                  <span style={{
+                    marginLeft:'auto', fontSize:10, fontWeight:700,
+                    letterSpacing:'0.06em', textTransform:'uppercase',
+                    color: sol.status === 'In active development' ? 'var(--accent)' : 'var(--text-muted)',
+                  }}>{sol.status}</span>
                 </div>
                 <h3 style={{ fontFamily:'var(--font-head)', fontSize:20, fontWeight:400, marginBottom:10 }}>{sol.title}</h3>
                 <p style={{ color:'var(--text-secondary)', fontSize:14, lineHeight:1.75 }}>{sol.desc}</p>
@@ -209,15 +222,15 @@ export default function Home() {
         <div className="container">
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:72, alignItems:'center' }} className="why-grid">
             <div>
-              <div className="section-label">Why Anantlink</div>
+              <div className="section-label">Why AnantLink</div>
               <h2 style={{ fontSize:'clamp(26px,3.5vw,44px)', fontWeight:400, lineHeight:1.2, marginBottom:20 }}>
                 Built around how<br/>
-                Indian hospitals <em style={{ color:'var(--accent)', fontStyle:'italic' }}>actually</em> operate.
+                hospitals <em style={{ color:'var(--accent)', fontStyle:'italic' }}>actually</em> operate.
               </h2>
               <p style={{ color:'var(--text-secondary)', lineHeight:1.8, fontSize:16, marginBottom:36 }}>
-                Most healthcare IoT comes from elsewhere and gets localised poorly. 
-                We started from scratch — in Bengaluru, with Indian clinicians, for Indian hospitals. 
-                That changes what gets built and how it gets supported.
+                Most healthcare IoT is designed far from the wards it ends up in.
+                We build alongside clinicians, inside working hospitals, around real
+                workflows. That changes what gets built and how it gets supported.
               </p>
               <Link to="/about" className="btn btn-outline">Our story →</Link>
             </div>
@@ -241,7 +254,7 @@ export default function Home() {
         <div style={{
           position:'absolute', top:-60, right:-60,
           width:400, height:400, borderRadius:'50%',
-          background:'radial-gradient(circle, rgba(210,219,200,0.08) 0%, transparent 70%)',
+          background:'radial-gradient(circle, rgba(205,214,208,0.08) 0%, transparent 70%)',
           pointerEvents:'none',
         }} />
         <div className="container" style={{ position:'relative', zIndex:1 }}>
@@ -250,9 +263,9 @@ export default function Home() {
               <div style={{
                 display:'inline-flex', alignItems:'center', gap:7,
                 padding:'5px 13px',
-                background:'rgba(210,219,200,0.15)',
+                background:'rgba(205,214,208,0.15)',
                 borderRadius:100, fontSize:11, fontWeight:600,
-                color:'#d2dbc8', letterSpacing:'0.1em',
+                color:'#cdd6d0', letterSpacing:'0.1em',
                 textTransform:'uppercase', marginBottom:20,
               }}>
                 <span style={{ width:6, height:6, borderRadius:'50%', background:'#7ec86e', display:'inline-block' }} />
@@ -261,7 +274,7 @@ export default function Home() {
               <h2 style={{ fontFamily:'var(--font-head)', fontSize:'clamp(26px,3.5vw,44px)', color:'#f8f8ec', fontWeight:400, marginBottom:16, lineHeight:1.2 }}>
                 We're in development.<br/>We'd love a partner.
               </h2>
-              <p style={{ color:'#9bb5ba', fontSize:16, lineHeight:1.75, maxWidth:420 }}>
+              <p style={{ color:'#aababa', fontSize:16, lineHeight:1.75, maxWidth:420 }}>
                 If you run a hospital or clinic and want to be involved early — as a pilot site, 
                 advisor, or integration partner — we'd genuinely love to talk.
               </p>
@@ -271,17 +284,18 @@ export default function Home() {
                 { icon:'🏥', t:'Hospital pilot sites', d:'Get early access and help shape what we build.' },
                 { icon:'🤝', t:'Technology partners', d:'HIS vendors, hardware makers, system integrators.' },
                 { icon:'💡', t:'Clinical advisors', d:'Clinicians who want to design better workflows.' },
+                { icon:'📈', t:'Investors', d:'Pre-seed conversations open — pitch deck available on request.' },
               ].map(item => (
                 <div key={item.t} style={{
                   display:'flex', gap:16, padding:'18px 20px',
-                  background:'rgba(210,219,200,0.08)',
-                  border:'1px solid rgba(210,219,200,0.15)',
+                  background:'rgba(205,214,208,0.08)',
+                  border:'1px solid rgba(205,214,208,0.15)',
                   borderRadius:10,
                 }}>
                   <span style={{ fontSize:20 }}>{item.icon}</span>
                   <div>
-                    <div style={{ color:'#d2dbc8', fontWeight:600, fontSize:14, marginBottom:3 }}>{item.t}</div>
-                    <div style={{ color:'#9bb5ba', fontSize:13 }}>{item.d}</div>
+                    <div style={{ color:'#cdd6d0', fontWeight:600, fontSize:14, marginBottom:3 }}>{item.t}</div>
+                    <div style={{ color:'#aababa', fontSize:13 }}>{item.d}</div>
                   </div>
                 </div>
               ))}
@@ -321,19 +335,19 @@ function WhyItem({ num, title, desc }) {
 function HeroVis() {
   return (
     <svg viewBox="0 0 360 380" width="360" height="380" fill="none" xmlns="http://www.w3.org/2000/svg"
-      style={{ filter:'drop-shadow(0 8px 32px rgba(29,124,192,0.1))' }}>
+      style={{ filter:'drop-shadow(0 8px 32px rgba(20,113,186,0.1))' }}>
       {/* Background blob */}
       <ellipse cx="180" cy="200" rx="160" ry="160"
         fill="url(#bg-grad)" opacity="0.18"/>
       {/* Connection arcs */}
-      <path d="M80 190 Q180 100 280 190" stroke="#1d7cc0" strokeWidth="1.5" fill="none" strokeDasharray="5 4" opacity="0.4"/>
-      <path d="M80 200 Q180 300 280 200" stroke="#3f5e69" strokeWidth="1.5" fill="none" strokeDasharray="5 4" opacity="0.3"/>
+      <path d="M80 190 Q180 100 280 190" stroke="#1471ba" strokeWidth="1.5" fill="none" strokeDasharray="5 4" opacity="0.4"/>
+      <path d="M80 200 Q180 300 280 200" stroke="#41616b" strokeWidth="1.5" fill="none" strokeDasharray="5 4" opacity="0.3"/>
       {/* Center node */}
-      <circle cx="180" cy="195" r="40" fill="white" stroke="#d2dbc8" strokeWidth="1.5"/>
-      <circle cx="180" cy="195" r="28" fill="#e8f2fb"/>
-      <circle cx="180" cy="195" r="14" fill="#1d7cc0" opacity="0.9"/>
+      <circle cx="180" cy="195" r="40" fill="white" stroke="#cdd6d0" strokeWidth="1.5"/>
+      <circle cx="180" cy="195" r="28" fill="#e8f1f9"/>
+      <circle cx="180" cy="195" r="14" fill="#1471ba" opacity="0.9"/>
       {/* Pulse */}
-      <circle cx="180" cy="195" r="40" stroke="#1d7cc0" strokeWidth="1" strokeOpacity="0.35">
+      <circle cx="180" cy="195" r="40" stroke="#1471ba" strokeWidth="1" strokeOpacity="0.35">
         <animate attributeName="r" from="28" to="55" dur="2.2s" repeatCount="indefinite"/>
         <animate attributeName="stroke-opacity" from="0.35" to="0" dur="2.2s" repeatCount="indefinite"/>
       </circle>
@@ -348,26 +362,26 @@ function HeroVis() {
       ].map(([cx, cy, ic, lb]) => (
         <g key={lb} transform={`translate(${cx},${cy})`}>
           <rect x="-34" y="-22" width="68" height="44" rx="10"
-            fill="white" stroke="#d2dbc8" strokeWidth="1.2"/>
+            fill="white" stroke="#cdd6d0" strokeWidth="1.2"/>
           <text x="0" y="-4" textAnchor="middle" fontSize="14">{ic}</text>
-          <text x="0" y="11" textAnchor="middle" fontSize="10" fill="#4a5d5e" fontFamily="DM Sans, sans-serif" fontWeight="600">{lb}</text>
+          <text x="0" y="11" textAnchor="middle" fontSize="10" fill="#41616b" fontFamily="DM Sans, sans-serif" fontWeight="600">{lb}</text>
           {/* connector to center */}
           <line x1={180-cx} y1={195-cy} x2={0} y2={0}
-            stroke="#d2dbc8" strokeWidth="1" strokeDasharray="3 3"
+            stroke="#cdd6d0" strokeWidth="1" strokeDasharray="3 3"
             transform={`translate(0,0)`}/>
         </g>
       ))}
       {/* Connector lines (drawn separately for clarity) */}
-      <line x1="180" y1="83" x2="180" y2="155" stroke="#d2dbc8" strokeWidth="1" strokeDasharray="3 3"/>
-      <line x1="276" y1="162" x2="215" y2="183" stroke="#d2dbc8" strokeWidth="1" strokeDasharray="3 3"/>
-      <line x1="276" y1="233" x2="215" y2="205" stroke="#d2dbc8" strokeWidth="1" strokeDasharray="3 3"/>
-      <line x1="180" y1="313" x2="180" y2="235" stroke="#d2dbc8" strokeWidth="1" strokeDasharray="3 3"/>
-      <line x1="84"  y1="233" x2="148" y2="205" stroke="#d2dbc8" strokeWidth="1" strokeDasharray="3 3"/>
-      <line x1="84"  y1="162" x2="148" y2="183" stroke="#d2dbc8" strokeWidth="1" strokeDasharray="3 3"/>
+      <line x1="180" y1="83" x2="180" y2="155" stroke="#cdd6d0" strokeWidth="1" strokeDasharray="3 3"/>
+      <line x1="276" y1="162" x2="215" y2="183" stroke="#cdd6d0" strokeWidth="1" strokeDasharray="3 3"/>
+      <line x1="276" y1="233" x2="215" y2="205" stroke="#cdd6d0" strokeWidth="1" strokeDasharray="3 3"/>
+      <line x1="180" y1="313" x2="180" y2="235" stroke="#cdd6d0" strokeWidth="1" strokeDasharray="3 3"/>
+      <line x1="84"  y1="233" x2="148" y2="205" stroke="#cdd6d0" strokeWidth="1" strokeDasharray="3 3"/>
+      <line x1="84"  y1="162" x2="148" y2="183" stroke="#cdd6d0" strokeWidth="1" strokeDasharray="3 3"/>
       <defs>
         <radialGradient id="bg-grad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#1d7cc0"/>
-          <stop offset="100%" stopColor="#d2dbc8"/>
+          <stop offset="0%" stopColor="#1471ba"/>
+          <stop offset="100%" stopColor="#cdd6d0"/>
         </radialGradient>
       </defs>
     </svg>

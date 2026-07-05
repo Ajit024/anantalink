@@ -140,7 +140,7 @@ export default function Contact() {
                 <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
                   <FRow e="📞" t="+91 91487-14987 (whatsapp only)" />
                   <FRow e="✉️" t="contact@anantlink.com" />
-                  <FRow e="📍" t="Bengaluru, Karnataka, India" />
+                  <FRow e="📍" t="Hyderabad" />
                   <FRow e="🕐" t="Mon–Fri · 9 AM to 6 PM IST" />
                 </div>
                 <div style={{ marginTop:16, padding:'8px 12px', background:'rgba(63,94,105,0.08)', borderRadius:7, fontSize:12, color:'var(--teal-dark)' }}>
@@ -159,8 +159,9 @@ export default function Contact() {
                   </h3>
                   <p style={{ color:'var(--text-secondary)', fontSize:15, lineHeight:1.75, maxWidth:340, margin:'0 auto' }}>
                     {/* We've received your message and will reply within one business day — usually sooner. */}
-                    <p>From web email isn't working. Please email us directly at contact@anantlink.com or reach out on whatsapp at +91 91487-14987.</p>
-                    <p>Sorry for the inconvenience, and thank you for your interest in AnantLink!</p>
+                    <p>Thank you for reaching out! We've received your message and will reply within one business day — usually sooner.</p>
+                    <p style={{ marginTop:12 }}>In the meantime, feel free to explore our <a href="/solutions" style={{ color:'var(--accent)', textDecoration:'underline' }}>solutions</a> or read our <a href="/blog" style={{ color:'var(--accent)', textDecoration:'underline' }}>blog</a> for insights on hospital operations and technology.</p>
+                    
                   </p>
                   <button onClick={reset} className="btn btn-ghost" style={{ marginTop:24 }}>
                     Send another message
@@ -180,7 +181,7 @@ export default function Contact() {
                         <input type="text" placeholder="Dr. Anita Sharma" value={form.name} onChange={e=>update('name',e.target.value)} style={inp(!!errors.name)}/>
                       </Field>
                       <Field label="Organisation *" error={errors.org}>
-                        <input type="text" placeholder="Apollo Hospitals, Bengaluru" value={form.org} onChange={e=>update('org',e.target.value)} style={inp(!!errors.org)}/>
+                        <input type="text" placeholder="Apollo Hospitals, Hyderabad" value={form.org} onChange={e=>update('org',e.target.value)} style={inp(!!errors.org)}/>
                       </Field>
                     </Row2>
                     <Row2>
@@ -252,7 +253,7 @@ export default function Contact() {
         input::placeholder, textarea::placeholder { color: var(--text-muted); }
         input:focus, select:focus, textarea:focus {
           outline: none; border-color: var(--accent) !important;
-          box-shadow: 0 0 0 3px rgba(29,124,192,0.1);
+          box-shadow: 0 0 0 3px rgba(20,113,186,0.1);
         }
         @keyframes spin { to { transform: rotate(360deg); } }
       `}</style>

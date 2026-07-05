@@ -88,7 +88,7 @@ const SOLUTIONS = [
     tag: 'Operations',
     title: 'RTLS Asset Tracking',
     subtitle: 'Every piece of equipment, accounted for — always.',
-    desc: `Hospital staff lose over 30 minutes per shift searching for equipment. Anantlink RTLS builds a real-time picture of every tracked asset — infusion pumps, ventilators, wheelchairs, defibrillators — across floors, wings, and buildings. So no one needs to go looking again.`,
+    desc: `Hospital staff lose over 30 minutes per shift searching for equipment. AnantLink RTLS builds a real-time picture of every tracked asset — infusion pumps, ventilators, wheelchairs, defibrillators — across floors, wings, and buildings. So no one needs to go looking again.`,
     features: [
       'Sub-3m indoor positioning via BLE beacon mesh',
       'Asset utilisation and idle-time analytics',
@@ -213,7 +213,7 @@ export default function Solutions() {
             Fits with what you already have
           </h2>
           <p style={{ textAlign:'center', color:'var(--text-secondary)', marginBottom:44, maxWidth:420, margin:'0 auto 44px' }}>
-            HL7 FHIR, DICOM, ABDM, and major HIS/EMR systems — natively supported.
+            Built on open standards — designed to integrate with HL7 FHIR, DICOM, ABDM, and major HIS/EMR systems.
           </p>
           <div style={{ display:'flex', gap:12, flexWrap:'wrap', justifyContent:'center' }}>
             {['HL7 FHIR','ABDM','DICOM','NABH','OpenEMR','Practo','eVitalRx','AWS Healthcare','Meditech'].map(name => (

@@ -21,7 +21,7 @@ export default function App() {
       {/* Dev stage banner */}
       <div style={{
         background: 'var(--teal-dark)',
-        color: '#d2dbc8',
+        color: '#cdd6d0',
         textAlign: 'center',
         padding: '8px 20px',
         fontSize: 12,

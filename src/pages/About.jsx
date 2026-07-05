@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom'
 
 const VALUES = [
   { icon:'🔬', title:'Clinical first', desc:"Every feature starts with a clinician's actual workflow. If it doesn't make care better, it doesn't ship." },
-  { icon:'🇮🇳', title:'Built for India', desc:'Designed for NABH compliance, ABDM integration, variable infrastructure, and tight hospital budgets — not retrofitted from elsewhere.' },
+  { icon:'🏥', title:'Built for real conditions', desc:'Designed for accreditation-grade compliance, variable infrastructure, and tight hospital budgets — not retrofitted from somewhere else.' },
   { icon:'🛡️', title:'Security by default', desc:'On-premise options, AES-128 encrypted data pipes, role-based access, and full DISHA data localisation — from day one.' },
   { icon:'🔗', title:'Open and interoperable', desc:'Vendor-agnostic hardware, open APIs, native FHIR support. We work with your existing systems, not around them.' },
 ]
 
 const MILESTONES = [
-  { year:'2026', event:'Anantlink founded by engineers and clinicians tired of watching hospitals run on paper and guesswork.' },
+  { year:'2026', event:'AnantLink founded by engineers tired of watching hospitals run on paper and guesswork. Vital-sign monitoring and command dashboard in active development.' },
   // { year:'2022', event:'First pilot deployment at a 200-bed tertiary care hospital in Karnataka — patient monitoring and asset tracking.' },
   // { year:'2023', event:'RTLS and automation modules launched. Expanded to multi-building hospital campuses.' },
   // { year:'2024', event:'Digital Twin and AI Analytics added. Deployments across multiple states. Series A process begun.' },
@@ -30,14 +30,14 @@ export default function About() {
       <section style={{ position:'relative', padding:'80px 0 72px', background:'var(--bg-surface)', overflow:'hidden' }}>
         <div className="dot-bg" />
         <div className="container" style={{ position:'relative', zIndex:1, maxWidth:700 }}>
-          <div className="section-label">About Anantlink</div>
+          <div className="section-label">About AnantLink</div>
           <h1 style={{ fontSize:'clamp(34px,5vw,62px)', fontWeight:400, letterSpacing:'-0.02em', lineHeight:1.1, marginBottom:24 }}>
             We started because hospitals deserved better tools.
           </h1>
           <p style={{ color:'var(--text-secondary)', fontSize:18, lineHeight:1.8 }}>
-            Anantlink was founded by engineers and clinicians who spent years inside hospitals — 
-            watching care teams make critical decisions without real-time data. 
-            We knew the technology existed. It just hadn't been built right for India.
+            AnantLink was founded by engineers who spent years around hospital systems —
+            watching care teams make critical decisions without real-time data.
+            We knew the technology existed. It just hadn't been built right for the hospitals that need it most.
           </p>
         </div>
       </section>
@@ -49,16 +49,15 @@ export default function About() {
             <div>
               <div className="section-label">Our Mission</div>
               <h2 style={{ fontSize:'clamp(26px,3.5vw,42px)', fontWeight:400, lineHeight:1.2, marginBottom:22 }}>
-                Give every Indian hospital<br/>
+                Give every hospital<br/>
                 <em style={{ color:'var(--accent)', fontStyle:'italic' }}>the data it needs.</em>
               </h2>
               <p style={{ color:'var(--text-secondary)', lineHeight:1.8, fontSize:16, marginBottom:18 }}>
-                India's healthcare system serves over a billion people. 
-                But most hospital decisions — from where to find an infusion pump 
+                Most hospital decisions — from where to find an infusion pump
                 to how full the ICU will be tomorrow — still happen without real-time information.
               </p>
               <p style={{ color:'var(--text-secondary)', lineHeight:1.8, fontSize:16, marginBottom:32 }}>
-                Anantlink exists to fix that. Not with an overpriced platform that takes three 
+                AnantLink exists to fix that. Not with an overpriced platform that takes three 
                 years to implement — but with modular tools that plug into existing infrastructure 
                 and show measurable results within weeks.
               </p>
@@ -70,9 +69,9 @@ export default function About() {
 
             <div style={{ display:'flex', flexDirection:'column', gap:14 }}>
               {[
-                { n:'1.4B+', l:'People served by Indian healthcare' },
-                { n:'80,000+', l:'Hospitals and clinics across India' },
-                { n:'₹8L Cr', l:'Indian healthcare market size by 2030' },
+                { n:'4–6', l:'Siloed systems replaced by one platform' },
+                { n:'24/7', l:'Continuous monitoring by design' },
+                { n:'Weeks', l:'From install to measurable results' },
                 { n:'<5%', l:'Hospitals with real-time operational data today' },
               ].map(s => (
                 <div key={s.l} style={{
@@ -113,7 +112,7 @@ export default function About() {
                   background: i === MILESTONES.length-1 ? 'var(--accent)' : 'var(--bg-surface)',
                   border:`2px solid ${i === MILESTONES.length-1 ? 'var(--accent)' : 'var(--sage-mid)'}`,
                   top:3,
-                  boxShadow: i === MILESTONES.length-1 ? '0 0 10px rgba(29,124,192,0.3)' : 'none',
+                  boxShadow: i === MILESTONES.length-1 ? '0 0 10px rgba(20,113,186,0.3)' : 'none',
                 }} />
                 <div>
                   <div style={{ fontWeight:700, fontSize:12, color:'var(--accent)', letterSpacing:'0.1em', marginBottom:5 }}>{m.year}</div>
