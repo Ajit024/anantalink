@@ -1,55 +1,79 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
+import { BarChart3, Building2, HeartPulse, Layers3, MapPin, Radio, Tablet, Thermometer } from 'lucide-react'
 import EcosystemFlow from '../components/EcosystemFlow'
-
-const STATS = [
-  { value: '6',       label: 'Platform Modules' },
-  { value: '1',       label: 'Shared Data Layer' },
-  { value: 'Offline', label: 'Edge-first Design' },
-  { value: 'Open',    label: 'Vendor-neutral APIs' },
-]
 
 const SOLUTIONS = [
   {
-    icon: '🫀',
+    Icon: HeartPulse,
     tag: 'Clinical',
     status: 'In active development',
+    art: '/images/solutions/vsm-product.webp',
+    artAlt: 'Patient wearable and bedside monitor sending vital readings to a nurse dashboard',
     title: 'Patient Monitoring (VSM)',
     desc: 'Continuous vitals from BLE wearables streamed to nurse stations and mobile apps — so care teams can focus on patients, not paperwork.',
   },
   {
-    icon: '📊',
+    Icon: BarChart3,
     tag: 'Analytics',
     status: 'In active development',
+    art: '/images/platform-dashboard.svg',
+    artAlt: 'Hospital dashboard showing active alerts and monitored areas',
     title: 'Command Dashboard',
     desc: 'One live view of the whole hospital — patients, devices, alerts, and operational KPIs. From bed forecasts to predictive maintenance.',
   },
   {
-    icon: '📡',
+    Icon: MapPin,
     tag: 'Operations',
     status: 'Planned',
+    art: '/images/devices/asset-tracker.png',
+    artAlt: 'Realistic BLE asset tracker tag used to locate hospital equipment',
     title: 'RTLS Asset Tracking',
     desc: "Know where every pump, wheelchair, and ventilator is — without asking. Real-time maps that eliminate equipment searches for good.",
   },
   {
-    icon: '🏥',
+    Icon: Building2,
     tag: 'Infrastructure',
     status: 'Planned',
+    art: '/images/solutions/connected-devices-product.webp',
+    artAlt: 'Hospital bed, room, and patient devices connected to a shared network',
     title: 'Hospital Automation',
     desc: 'Smart rooms, automated nurse-call routing, code-blue sequencing, and energy management — all running quietly in the background.',
   },
   {
-    icon: '🧠',
+    Icon: Layers3,
     tag: 'Intelligence',
     status: 'Planned',
+    art: '/images/hero-connected-ward.webp',
+    artAlt: 'Isometric hospital room with connected patient monitor, gateway, and care team',
     title: 'Hospital Digital Twin',
     desc: 'A live replica of your hospital floor. See capacity, movement, and environment data together and make decisions before problems occur.',
   },
   {
-    icon: '🔗',
+    Icon: Radio,
     tag: 'Infrastructure',
     status: 'Core layer',
+    art: '/images/solutions/edge-gateway-product.webp',
+    artAlt: 'BLE wearables, room sensors, and asset tags connected through a local gateway',
     title: 'BLE IoT Infrastructure',
     desc: 'The enterprise-grade wireless mesh everything else depends on. Vendor-agnostic, secure, and designed for complex hospital campuses.',
+  },
+  {
+    Icon: Tablet,
+    tag: 'Patient Experience',
+    status: 'Planned',
+    art: '/images/devices/checkin-kiosk.png',
+    artAlt: 'Freestanding touchscreen patient check-in kiosk',
+    title: 'Self Service Kiosk',
+    desc: 'A guided check-in for registration, appointments, and visitor workflows.',
+  },
+  {
+    Icon: Thermometer,
+    tag: 'Facility Intelligence',
+    status: 'Planned',
+    art: '/images/devices/environment-sensor.png',
+    artAlt: 'Wall-mounted temperature and humidity sensor for hospital rooms',
+    title: 'Environmental Monitoring',
+    desc: 'Room sensors help teams track conditions in critical spaces.',
   },
 ]
 
@@ -97,7 +121,7 @@ export default function Home() {
         }} />
 
         <div className="container" style={{ position:'relative', zIndex:1 }}>
-          <div style={{ display:'grid', gridTemplateColumns:'1fr auto', gap:48, alignItems:'center' }} className="hero-grid">
+          <div style={{ display:'grid', gridTemplateColumns:'minmax(0,1.08fr) minmax(0,.92fr)', gap:46, alignItems:'center' }} className="hero-grid">
             <div>
               {/* Dev badge */}
               <div style={{
@@ -115,21 +139,21 @@ export default function Home() {
               </div>
 
               <h1 className="animate-fade-up delay-1" style={{
-                fontSize:'clamp(38px,5.5vw,70px)',
+                fontSize:'clamp(42px,5.1vw,66px)',
                 fontWeight:400,
                 letterSpacing:'-0.02em',
                 lineHeight: 1.1,
                 marginBottom:24,
+                maxWidth:620,
                 color:'var(--teal-dark)',
               }}>
-                Connecting every corner<br />
-                of your <em style={{ color:'var(--accent)', fontStyle:'italic' }}>hospital.</em>
+                Connecting every corner of your <em style={{ color:'var(--accent)', fontStyle:'italic' }}>hospital.</em>
               </h1>
 
               <p className="animate-fade-up delay-2" style={{
                 fontSize:18,
                 color:'var(--text-secondary)',
-                maxWidth:500,
+                maxWidth:560,
                 lineHeight:1.75,
                 marginBottom:40,
               }}>
@@ -149,49 +173,39 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Stat row */}
-              <div className="animate-fade-up delay-4 stat-row" style={{
-                display:'flex', gap:0, marginTop:52,
-                background:'var(--bg-card)',
-                border:'1px solid var(--border-soft)',
-                borderRadius:10,
-                overflow:'hidden',
-                width:'fit-content',
-                boxShadow:'var(--shadow-sm)',
-              }}>
-                {STATS.map(({ value, label }, i) => (
-                  <div key={label} className="stat-cell" style={{
-                    padding:'18px 24px',
-                    textAlign:'center',
-                    borderRight: i < STATS.length-1 ? '1px solid var(--border-soft)' : 'none',
-                  }}>
-                    <div style={{ fontFamily:'var(--font-head)', fontWeight:400, fontSize:22, color:'var(--accent)' }}>{value}</div>
-                    <div style={{ fontSize:11, color:'var(--text-muted)', marginTop:3, whiteSpace:'nowrap' }}>{label}</div>
-                  </div>
-                ))}
-              </div>
             </div>
 
-            {/* Hero visual */}
-            <div style={{ animation:'float 5s ease-in-out infinite' }} className="hero-vis">
-              <HeroVis />
+            <div className="home-connected-visual">
+              <figure className="hero-ward-figure">
+                <img src="/images/hero-connected-ward.webp" alt="Isometric hospital room showing a patient wearable and bedside monitor sending a signal through a wall gateway to a nurse holding a phone" />
+                <svg className="hero-data-network" viewBox="0 0 1000 667" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M354 363 C432 333 497 290 644 245 C687 278 691 348 742 414" />
+                  <circle className="hero-node" cx="644" cy="245" r="8" />
+                  <circle className="hero-node" cx="742" cy="414" r="7" />
+                  <circle className="hero-tablet-touch-ripple" cx="660" cy="283" r="24" />
+                  <circle className="hero-tablet-touch-ring" cx="660" cy="283" r="17" />
+                  <circle className="hero-tablet-touch-core" cx="660" cy="283" r="7" />
+                </svg>
+                <figcaption>Patient + monitor <i/> room gateway <i/> nurse alert <small>Illustrative connected-care workflow</small></figcaption>
+              </figure>
+              <div className="home-signal-strip" aria-label="Illustrative connected hospital data">
+                <span><i className="signal-vitals"/>Vitals <b>SpO₂ 97%</b></span>
+                <span><i className="signal-rtls"/>RTLS <b>Room 204</b></span>
+                <span><i className="signal-alert"/>Fall alert <b>Ready</b></span>
+                <small>Simulated workflow · sample data</small>
+              </div>
             </div>
           </div>
         </div>
 
         <style>{`
           @keyframes pulse-soft { 0%,100%{opacity:1} 50%{opacity:0.4} }
-          @media(max-width:860px){ .hero-grid{grid-template-columns:1fr!important;} .hero-vis{display:none!important;} }
-          @media(max-width:560px){
-            .stat-row{ display:grid!important; grid-template-columns:1fr 1fr!important; width:100%!important; }
-            .stat-cell{ border-right:none!important; border-bottom:1px solid var(--border-soft); padding:14px 10px!important; }
-            .stat-cell:nth-child(3), .stat-cell:nth-child(4){ border-bottom:none; }
-            .stat-cell:nth-child(odd){ border-right:1px solid var(--border-soft)!important; }
-          }
+          @media(max-width:1100px){ .hero-grid{grid-template-columns:1fr!important;gap:34px!important;} }
         `}</style>
       </section>
 
-      {/* ── ECOSYSTEM FLOW ─────────────────────────── */}
+      {/* ── CARE IN CONTEXT ───────────────────────── */}
+      {/* ── CONNECTED CARE WORKFLOW ────────────────── */}
       <EcosystemFlow />
 
       {/* ── SOLUTIONS GRID ─────────────────────────── */}
@@ -201,7 +215,7 @@ export default function Home() {
             <div>
               <div className="section-label">What We're Building</div>
               <h2 style={{ fontSize:'clamp(28px,3.8vw,46px)', maxWidth:420, fontWeight:400, lineHeight:1.2 }}>
-                Six modules.<br/>One connected hospital.
+                Connected care.<br/>One platform.
               </h2>
             </div>
             <Link to="/solutions" className="btn btn-outline">Explore all modules</Link>
@@ -210,8 +224,12 @@ export default function Home() {
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(300px, 1fr))', gap:18 }}>
             {SOLUTIONS.map(sol => (
               <div key={sol.title} className="card" style={{ cursor:'default' }}>
+                <div className="home-product-art-frame">
+                  <img className="home-product-art" src={sol.art} alt={sol.artAlt} loading="lazy" />
+                  <small>Illustrative equipment</small>
+                </div>
                 <div style={{ display:'flex', alignItems:'center', gap:12, marginBottom:16, flexWrap:'wrap' }}>
-                  <span style={{ fontSize:22 }}>{sol.icon}</span>
+                  <span className="home-module-icon"><sol.Icon size={20}/></span>
                   <span className="tag-sage">{sol.tag}</span>
                   <span style={{
                     marginLeft:'auto', fontSize:10, fontWeight:700,
@@ -339,61 +357,5 @@ function WhyItem({ num, title, desc }) {
         <p style={{ color:'var(--text-secondary)', fontSize:13, lineHeight:1.65 }}>{desc}</p>
       </div>
     </div>
-  )
-}
-
-function HeroVis() {
-  return (
-    <svg viewBox="0 0 360 380" width="360" height="380" fill="none" xmlns="http://www.w3.org/2000/svg"
-      style={{ filter:'drop-shadow(0 8px 32px rgba(20,113,186,0.1))' }}>
-      {/* Background blob */}
-      <ellipse cx="180" cy="200" rx="160" ry="160"
-        fill="url(#bg-grad)" opacity="0.18"/>
-      {/* Connection arcs */}
-      <path d="M80 190 Q180 100 280 190" stroke="#1471ba" strokeWidth="1.5" fill="none" strokeDasharray="5 4" opacity="0.4"/>
-      <path d="M80 200 Q180 300 280 200" stroke="#41616b" strokeWidth="1.5" fill="none" strokeDasharray="5 4" opacity="0.3"/>
-      {/* Center node */}
-      <circle cx="180" cy="195" r="40" fill="white" stroke="#cdd6d0" strokeWidth="1.5"/>
-      <circle cx="180" cy="195" r="28" fill="#e8f1f9"/>
-      <circle cx="180" cy="195" r="14" fill="#1471ba" opacity="0.9"/>
-      {/* Pulse */}
-      <circle cx="180" cy="195" r="40" stroke="#1471ba" strokeWidth="1" strokeOpacity="0.35">
-        <animate attributeName="r" from="28" to="55" dur="2.2s" repeatCount="indefinite"/>
-        <animate attributeName="stroke-opacity" from="0.35" to="0" dur="2.2s" repeatCount="indefinite"/>
-      </circle>
-      {/* Outer nodes */}
-      {[
-        [180, 60,  '🫀', 'Vitals'],
-        [310, 140, '📡', 'RTLS'],
-        [310, 255, '📊', 'AI'],
-        [180, 335, '🏥', 'Rooms'],
-        [52,  255, '🔗', 'BLE'],
-        [52,  140, '🧠', 'Twin'],
-      ].map(([cx, cy, ic, lb]) => (
-        <g key={lb} transform={`translate(${cx},${cy})`}>
-          <rect x="-34" y="-22" width="68" height="44" rx="10"
-            fill="white" stroke="#cdd6d0" strokeWidth="1.2"/>
-          <text x="0" y="-4" textAnchor="middle" fontSize="14">{ic}</text>
-          <text x="0" y="11" textAnchor="middle" fontSize="10" fill="#41616b" fontFamily="DM Sans, sans-serif" fontWeight="600">{lb}</text>
-          {/* connector to center */}
-          <line x1={180-cx} y1={195-cy} x2={0} y2={0}
-            stroke="#cdd6d0" strokeWidth="1" strokeDasharray="3 3"
-            transform={`translate(0,0)`}/>
-        </g>
-      ))}
-      {/* Connector lines (drawn separately for clarity) */}
-      <line x1="180" y1="83" x2="180" y2="155" stroke="#cdd6d0" strokeWidth="1" strokeDasharray="3 3"/>
-      <line x1="276" y1="162" x2="215" y2="183" stroke="#cdd6d0" strokeWidth="1" strokeDasharray="3 3"/>
-      <line x1="276" y1="233" x2="215" y2="205" stroke="#cdd6d0" strokeWidth="1" strokeDasharray="3 3"/>
-      <line x1="180" y1="313" x2="180" y2="235" stroke="#cdd6d0" strokeWidth="1" strokeDasharray="3 3"/>
-      <line x1="84"  y1="233" x2="148" y2="205" stroke="#cdd6d0" strokeWidth="1" strokeDasharray="3 3"/>
-      <line x1="84"  y1="162" x2="148" y2="183" stroke="#cdd6d0" strokeWidth="1" strokeDasharray="3 3"/>
-      <defs>
-        <radialGradient id="bg-grad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#1471ba"/>
-          <stop offset="100%" stopColor="#cdd6d0"/>
-        </radialGradient>
-      </defs>
-    </svg>
   )
 }

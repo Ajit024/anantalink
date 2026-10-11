@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
+import { ClipboardList, MessagesSquare, Route, Mail, MapPin, Phone } from 'lucide-react'
 
 // ── Replace these three values with yours from emailjs.com ────────────────────
 const EMAILJS_SERVICE_ID  = 'service_vu7phko'   // e.g. 'service_abc123'
@@ -94,15 +95,21 @@ export default function Contact() {
       {/* ── HERO ── */}
       <section style={{ position:'relative', padding:'80px 0 56px', background:'var(--bg-surface)', overflow:'hidden' }}>
         <div className="dot-bg" />
-        <div className="container" style={{ position:'relative', zIndex:1 }}>
-          <div className="section-label">Get in Touch</div>
-          <h1 style={{ fontSize:'clamp(32px,5vw,58px)', fontWeight:400, letterSpacing:'-0.02em', maxWidth:560, lineHeight:1.1, marginBottom:18 }}>
-            Let's find out if we're a good fit.
-          </h1>
-          <p style={{ color:'var(--text-secondary)', fontSize:17, maxWidth:460, lineHeight:1.75 }}>
-            We're an early-stage team and we take every conversation seriously.
-            Tell us about your hospital and what you're trying to improve.
-          </p>
+        <div className="container contact-hero-grid" style={{ position:'relative', zIndex:1 }}>
+          <div>
+            <div className="section-label">Get in Touch</div>
+            <h1 style={{ fontSize:'clamp(32px,5vw,58px)', fontWeight:400, letterSpacing:'-0.02em', maxWidth:560, lineHeight:1.1, marginBottom:18 }}>
+              Let's find out if we're a good fit.
+            </h1>
+            <p style={{ color:'var(--text-secondary)', fontSize:17, maxWidth:460, lineHeight:1.75 }}>
+              We're an early-stage team and we take every conversation seriously.
+              Tell us about your hospital and what you're trying to improve.
+            </p>
+          </div>
+          <figure className="contact-hero-image">
+            <img src="/images/contact-connected-care.png" alt="Nurses reviewing a tablet beside a patient monitor and connected room sensor" />
+            <figcaption>Care team · patient monitor · connected room sensor</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -113,44 +120,40 @@ export default function Contact() {
 
             {/* Left */}
             <div>
-              <h2 style={{ fontFamily:'var(--font-head)', fontSize:22, fontWeight:400, marginBottom:28 }}>
-                How we engage
+              <h2 style={{ fontFamily:'var(--font-head)', fontSize:24, fontWeight:400, marginBottom:10 }}>
+                A straightforward first conversation.
               </h2>
-              {[
-                { icon:'📞', title:'Discovery call',       desc:'30 minutes to understand your hospital, your challenges, and whether we can genuinely help.' },
-                { icon:'🗺️', title:'Solution mapping',     desc:"We map your workflows to specific modules and give you an honest deployment estimate." },
-                { icon:'🚀', title:'90-day pilot',         desc:'Start with one department. Measure what changes before committing to anything larger.' },
-                { icon:'⚙️', title:'Full rollout & support', desc:'On-site installation, 24×7 support, and a dedicated person who knows your hospital.' },
-              ].map(s => (
-                <div key={s.title} style={{
-                  display:'flex', gap:16, padding:'18px 20px', marginBottom:12,
-                  background:'var(--bg-card)', border:'1px solid var(--border-soft)',
-                  borderRadius:10, boxShadow:'var(--shadow-sm)',
-                }}>
-                  <span style={{ fontSize:20, flex:'none' }}>{s.icon}</span>
-                  <div>
-                    <h4 style={{ fontSize:15, fontWeight:600, marginBottom:4 }}>{s.title}</h4>
-                    <p style={{ color:'var(--text-secondary)', fontSize:13, lineHeight:1.65 }}>{s.desc}</p>
+              <p style={{ color:'var(--text-secondary)', fontSize:14, lineHeight:1.7, marginBottom:22 }}>
+                Share the workflow you want to improve. We’ll talk through the context and see whether there’s a useful place to start.
+              </p>
+              <div className="contact-steps">
+                {[
+                  { Icon:ClipboardList, title:'Share the context', desc:'Tell us about your hospital and the workflow.' },
+                  { Icon:MessagesSquare, title:'Talk it through', desc:'We’ll ask questions and understand your setup.' },
+                  { Icon:Route, title:'Explore a next step', desc:'Discuss whether a focused starting point makes sense.' },
+                ].map((s,i) => (
+                  <div key={s.title} className="contact-step iso-raised">
+                    <span className="contact-step-number">0{i+1}</span>
+                    <span className="contact-step-icon"><s.Icon size={18}/></span>
+                    <div><b>{s.title}</b><small>{s.desc}</small></div>
+                    {i<2&&<i className="contact-step-link"/>}
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
 
-              <div style={{ marginTop:28, padding:'22px', background:'linear-gradient(135deg, var(--cream) 0%, var(--sage) 100%)', border:'1px solid var(--border)', borderRadius:12 }}>
+              <div className="contact-details iso-surface" style={{ marginTop:28, padding:'22px', background:'linear-gradient(135deg, var(--cream) 0%, var(--sage) 100%)' }}>
                 <h4 style={{ fontSize:14, fontWeight:700, marginBottom:14, color:'var(--teal-dark)' }}>Direct contact</h4>
                 <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
-                  <FRow e="📞" t="+91 91487-14987 (whatsapp only)" />
-                  <FRow e="✉️" t="contact@anantlink.com" />
-                  <FRow e="📍" t="Hyderabad" />
-                  <FRow e="🕐" t="Mon–Fri · 9 AM to 6 PM IST" />
-                </div>
-                <div style={{ marginTop:16, padding:'8px 12px', background:'rgba(63,94,105,0.08)', borderRadius:7, fontSize:12, color:'var(--teal-dark)' }}>
-                  <strong>We're a small team.</strong> You'll hear back from a founder, not an SDR.
+                  <FRow Icon={Phone} t="+91 91487-14987 · WhatsApp" href="https://wa.me/919148714987" />
+                  <FRow Icon={Mail} t="contact@anantlink.com" href="mailto:contact@anantlink.com" />
+                  <FRow Icon={MapPin} t="Registered office · Hyderabad, Telangana, India" />
+                  <FRow Icon={MapPin} t="Working locations · Hospital and pilot sites across India" />
                 </div>
               </div>
             </div>
 
             {/* Right — form */}
-            <div style={{ background:'var(--bg-card)', border:'1px solid var(--border-soft)', borderRadius:16, padding:'40px', boxShadow:'var(--shadow-card)' }}>
+            <div className="contact-form iso-surface" style={{ background:'var(--bg-card)', border:'1px solid var(--border-soft)', borderRadius:16, padding:'40px' }}>
               {sent ? (
                 <div style={{ textAlign:'center', padding:'40px 0' }}>
                   <div style={{ fontSize:48, marginBottom:18 }}>🙏</div>
@@ -158,10 +161,7 @@ export default function Contact() {
                     Thank you for reaching out.
                   </h3>
                   <p style={{ color:'var(--text-secondary)', fontSize:15, lineHeight:1.75, maxWidth:340, margin:'0 auto' }}>
-                    {/* We've received your message and will reply within one business day — usually sooner. */}
-                    <p>Thank you for reaching out! We've received your message and will reply within one business day — usually sooner.</p>
-                    <p style={{ marginTop:12 }}>In the meantime, feel free to explore our <a href="/solutions" style={{ color:'var(--accent)', textDecoration:'underline' }}>solutions</a> or read our <a href="/blog" style={{ color:'var(--accent)', textDecoration:'underline' }}>blog</a> for insights on hospital operations and technology.</p>
-                    
+                    Your message has been sent. We’ll be in touch soon. In the meantime, you can explore the <a href="/solutions" style={{ color:'var(--accent)', textDecoration:'underline' }}>platform modules</a>.
                   </p>
                   <button onClick={reset} className="btn btn-ghost" style={{ marginTop:24 }}>
                     Send another message
@@ -298,11 +298,7 @@ function Field({ label, error, children }) {
   )
 }
 
-function FRow({ e, t }) {
-  return (
-    <div style={{ display:'flex', alignItems:'center', gap:10 }}>
-      <span style={{ fontSize:14 }}>{e}</span>
-      <span style={{ color:'var(--teal-mid)', fontSize:14 }}>{t}</span>
-    </div>
-  )
+function FRow({ Icon, t, href }) {
+  const content = <><Icon size={15}/><span>{t}</span></>
+  return href ? <a className="contact-row" href={href}>{content}</a> : <div className="contact-row">{content}</div>
 }

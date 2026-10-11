@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router'
 
 const NAV_LINKS = [
   { label: 'What We\'re Building', to: '/solutions' },
+  { label: 'Hospital in Motion', to: '/experience' },
   { label: 'Demo', to: '/demo' },
   { label: 'About',     to: '/about'     },
   { label: 'Contact',   to: '/contact'   },
@@ -34,6 +35,11 @@ export default function Navbar() {
       borderBottom: scrolled ? '1px solid var(--border-soft)' : '1px solid transparent',
       boxShadow: scrolled ? '0 1px 12px rgba(58,90,100,0.08)' : 'none',
     }}>
+      <div className="site-announcement">
+        <span className="announcement-mark" aria-hidden="true">✦</span>
+        <span>We’re currently building something meaningful. Early access &amp; partnerships welcome —</span>
+        <Link to="/contact">get in touch</Link>
+      </div>
       <div className="container" style={{ display:'flex', alignItems:'center', height: 70 }}>
 
         {/* Logo — using actual brand image */}

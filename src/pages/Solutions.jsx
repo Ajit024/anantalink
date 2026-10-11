@@ -1,4 +1,17 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
+import { BarChart3, Building2, HeartPulse, Layers3, MapPin, Radio, Tablet, Thermometer } from 'lucide-react'
+
+const MODULE_ICONS = { monitoring: HeartPulse, 'self-kiosk': Tablet, environmental: Thermometer, rtls: MapPin, automation: Building2, digitaltwin: Layers3, ai: BarChart3, ble: Radio }
+const MODULE_ARTWORK = {
+  monitoring: ['/images/solutions/vsm-product.webp', 'Vital signs monitor, wearable patch, and pulse oximeter for patient monitoring'],
+  rtls: ['/images/solutions/asset-tracking-product.webp', 'BLE location tag and beacon alongside a hospital infusion pump'],
+  ble: ['/images/solutions/edge-gateway-product.webp', 'On-site edge gateway with BLE sensor and patient tag'],
+  environmental: ['/images/solutions/connected-devices-product.webp', 'Room environment sensor and connected hospital devices'],
+  automation: ['/images/solutions/connected-devices-product.webp', 'Hospital bed, room, and patient devices connected to shared workflows'],
+  'self-kiosk': ['/images/selfkioske.png', 'Hospital self-service check-in kiosk'],
+  digitaltwin: ['/images/solutions/asset-tracking-product.webp', 'Tracked infusion pump and location beacon for a live hospital floor view'],
+  ai: ['/images/platform-dashboard.svg', 'Hospital operations dashboard showing sample alerts, devices, and environmental zones'],
+}
 
 const SOLUTIONS = [
 
@@ -17,28 +30,6 @@ const SOLUTIONS = [
       'Nurse-station, mobile, and ICU dashboard routing',
       'Historical vital trend review for handovers',
     ],
-    metrics: [{ v:'<2s', l:'Alert latency'}, {v:'98%', l:'Sensor uptime'}, {v:'70%', l:'Faster response time'}],
-  },
-  {
-    id: 'vsm',
-    icon: '💓',
-    tag: 'Clinical Monitoring',
-    title: 'Vital Sign Monitoring',
-    subtitle: 'Vitals should move faster than paperwork.',
-    desc: 'Continuous monitoring of SpO₂, heart rate, ECG, blood pressure, temperature, respiratory rate, and fall alerts. Real-time dashboards and automated alerts help nurses focus on patients instead of running around with clipboards like it is still 1998.',
-    features: [
-      'Continuous ECG and heart rate monitoring',
-      'Blood pressure and SpO₂ tracking',
-      'Temperature and respiratory monitoring',
-      'Wireless bedside and wearable device support',
-      'Threshold-based alerts and escalation',
-      'EMR and nurse station integration',
-    ],
-    metrics: [
-      { v: 'Real-time', l: 'Monitoring updates' },
-      { v: '<5 sec', l: 'Alert trigger time' },
-      { v: '90%', l: 'Faster clinical response' },
-    ],
   },
      {
     id: 'self-kiosk',
@@ -54,11 +45,6 @@ const SOLUTIONS = [
       'Digital consent form capture',
       'Visitor and attendant management',
       'Integration with HIS and billing systems',
-    ],
-    metrics: [
-      { v: '50%', l: 'Less front desk load' },
-      { v: '<2 min', l: 'Average check-in time' },
-      { v: '24/7', l: 'Availability' },
     ],
   },
   {
@@ -76,11 +62,6 @@ const SOLUTIONS = [
       'Water leakage and smoke detection',
       'Central dashboard with audit logs and reports',
     ],
-    metrics: [
-      { v: '24/7', l: 'Environment tracking' },
-      { v: 'Instant', l: 'Threshold alerts' },
-      { v: '100%', l: 'Audit visibility' },
-    ],
   },
   {
     id: 'rtls',
@@ -97,7 +78,6 @@ const SOLUTIONS = [
       'Floor-plan heat maps and historical movement',
       'CMMS / maintenance system integration',
     ],
-    metrics: [{ v:'<3m', l:'Location accuracy'}, {v:'60%', l:'Search time saved'}, {v:'25%', l:'Capex reduction'}],
   },
   {
     id: 'automation',
@@ -114,7 +94,6 @@ const SOLUTIONS = [
       'Automated housekeeping and room-ready alerts',
       'Energy consumption monitoring and reporting',
     ],
-    metrics: [{ v:'20%', l:'Energy reduction'}, {v:'<5min', l:'Room turnaround'}, {v:'↓50%', l:'HAI risk potential'}],
   },
   {
     id: 'digitaltwin',
@@ -131,7 +110,6 @@ const SOLUTIONS = [
       'Historical event replay for quality reviews',
       'API-ready for HIS and ERP integration',
     ],
-    metrics: [{ v:'Live', l:'Real-time sync'}, {v:'100%', l:'Floor coverage'}, {v:'10×', l:'Faster decisions'}],
   },
   {
     id: 'ai',
@@ -148,7 +126,6 @@ const SOLUTIONS = [
       'Energy audit and cost recommendations',
       'Custom KPI dashboards for CXO reporting',
     ],
-    metrics: [{ v:'72h', l:'Forecast horizon'}, {v:'↓30%', l:'Unplanned downtime'}, {v:'Auto', l:'Report generation'}],
   },
   {
     id: 'ble',
@@ -165,7 +142,6 @@ const SOLUTIONS = [
       'Wi-Fi HaLow and LoRa for long-range coverage',
       'Network health monitoring and self-healing mesh',
     ],
-    metrics: [{ v:'<50ms', l:'Edge latency'}, {v:'AES-128', l:'Encryption'}, {v:'99.9%', l:'Network uptime'}],
   },
   
 
@@ -175,21 +151,21 @@ export default function Solutions() {
   return (
     <main>
       {/* ── PAGE HERO ─────────────────────────────── */}
-      <section style={{ position:'relative', padding:'80px 0 60px', overflow:'hidden', background:'var(--bg-surface)' }}>
+      <section style={{ position:'relative', padding:'68px 0 60px', overflow:'hidden', background:'var(--bg-surface)' }}>
         <div className="dot-bg" />
-        <div className="container" style={{ position:'relative', zIndex:1 }}>
-          <div className="section-label">Platform Modules</div>
-          <h1 style={{ fontSize:'clamp(34px,5vw,62px)', fontWeight:400, letterSpacing:'-0.02em', maxWidth:600, marginBottom:20, lineHeight:1.1 }}>
-            Start where your hospital hurts most.
-          </h1>
-          <p style={{ color:'var(--text-secondary)', fontSize:17, maxWidth:520, lineHeight:1.75 }}>
-            Each module works independently. All six share the same data layer — 
-            so every new module makes the ones you already have smarter.
-          </p>
-          <div style={{ display:'flex', gap:10, flexWrap:'wrap', marginTop:32 }}>
-            {['All','Clinical','Operations','Infrastructure','Intelligence','Analytics'].map(tag => (
-              <span key={tag} className="tag" style={{ cursor:'pointer' }}>{tag}</span>
-            ))}
+        <div className="container solutions-hero-grid" style={{ position:'relative', zIndex:1 }}>
+          <div>
+            <div className="section-label">Platform Modules</div>
+            <h1 style={{ fontSize:'clamp(34px,5vw,62px)', fontWeight:400, letterSpacing:'-0.02em', maxWidth:600, marginBottom:20, lineHeight:1.1 }}>
+              Start where your hospital hurts most.
+            </h1>
+            <p style={{ color:'var(--text-secondary)', fontSize:17, maxWidth:520, lineHeight:1.75 }}>
+              A modular connected-care platform. Begin with one workflow and expand as your needs grow.
+            </p>
+          </div>
+          <div className="solutions-screen iso-device-frame">
+            <div className="solutions-screen-head"><span>PLATFORM PREVIEW</span><small>Sample dashboard data</small></div>
+            <img src="/images/platform-dashboard.svg" alt="AnantLink hospital dashboard interface preview" />
           </div>
         </div>
       </section>
@@ -252,6 +228,7 @@ export default function Solutions() {
 }
 
 function SolutionRow({ sol, flip }) {
+  const Icon = MODULE_ICONS[sol.id] || Radio
   return (
     <div style={{
       display:'grid',
@@ -265,21 +242,21 @@ function SolutionRow({ sol, flip }) {
       boxShadow:'var(--shadow-sm)',
       transition:'box-shadow 0.25s',
     }}
-    className="sol-row"
+      className="sol-row iso-surface"
     onMouseEnter={e=>e.currentTarget.style.boxShadow='var(--shadow-card)'}
     onMouseLeave={e=>e.currentTarget.style.boxShadow='var(--shadow-sm)'}
     >
       {/* Text */}
       <div style={{ order: flip ? 2 : 1 }}>
         <div style={{ display:'flex', alignItems:'center', gap:12, marginBottom:18 }}>
-          <span style={{ fontSize:22 }}>{sol.icon}</span>
+          <span className="solution-type-icon"><Icon size={19}/></span>
           <span className="tag-sage">{sol.tag}</span>
         </div>
         <h2 style={{ fontFamily:'var(--font-head)', fontSize:26, fontWeight:400, marginBottom:8 }}>{sol.title}</h2>
         <p style={{ color:'var(--accent)', fontSize:14, fontWeight:600, marginBottom:14 }}>{sol.subtitle}</p>
         <p style={{ color:'var(--text-secondary)', fontSize:14, lineHeight:1.8, marginBottom:24 }}>{sol.desc}</p>
         <ul style={{ listStyle:'none', display:'flex', flexDirection:'column', gap:9 }}>
-          {sol.features.map(f => (
+          {sol.features.slice(0, 4).map(f => (
             <li key={f} style={{ display:'flex', alignItems:'flex-start', gap:9, fontSize:14, color:'var(--text-secondary)' }}>
               <span style={{ color:'var(--accent)', marginTop:2, flex:'none', fontWeight:700 }}>→</span>
               {f}
@@ -288,24 +265,7 @@ function SolutionRow({ sol, flip }) {
         </ul>
       </div>
 
-      {/* Metrics */}
-      <div style={{ order: flip ? 1 : 2, display:'flex', flexDirection:'column', gap:14 }}>
-        {sol.metrics.map(m => (
-          <div key={m.l} style={{
-            background:'linear-gradient(135deg, var(--cream) 0%, var(--sage) 100%)',
-            border:'1px solid var(--border)',
-            borderRadius:12, padding:'24px 28px', textAlign:'center',
-          }}>
-            <div style={{
-              fontFamily:'var(--font-head)',
-              fontSize:38, fontWeight:400,
-              color:'var(--teal-dark)',
-              lineHeight:1,
-            }}>{m.v}</div>
-            <div style={{ color:'var(--text-muted)', fontSize:13, marginTop:6 }}>{m.l}</div>
-          </div>
-        ))}
-      </div>
+      <div style={{ order: flip ? 1 : 2 }}><ModuleVisual id={sol.id} title={sol.title}/></div>
 
       <style>{`
         @media(max-width:768px){
@@ -314,5 +274,15 @@ function SolutionRow({ sol, flip }) {
         }
       `}</style>
     </div>
+  )
+}
+
+function ModuleVisual({ id, title }) {
+  const [src, alt] = MODULE_ARTWORK[id] || MODULE_ARTWORK.ble
+  return (
+    <figure className="solution-artwork">
+      <img src={src} alt={alt} loading="lazy" />
+      <figcaption>{title} · illustrative workflow</figcaption>
+    </figure>
   )
 }

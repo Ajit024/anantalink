@@ -1,0 +1,17 @@
+# AnantLink
+
+AnantLink is building connected-care infrastructure for hospitals in India. The modular platform is intended to connect patient monitoring, patient and equipment real-time location (RTLS), fall alerts, indoor environment monitoring, and hospital workflows with existing systems. Product examples and hospital walkthroughs on this site are simulations unless explicitly stated otherwise.
+
+## Main pages
+- [Home](https://anantlink.com/): Platform overview and connected-care workflow.
+- [Solutions](https://anantlink.com/solutions): Hospital monitoring, RTLS, asset tracking, environment, and automation modules.
+- [Hospital in Motion](https://anantlink.com/experience): Simulated campus walkthrough and device demonstrations.
+- [Product workflows](https://anantlink.com/demo): Sample signal-to-response workflows.
+- [About](https://anantlink.com/about): Company and platform architecture.
+- [Contact](https://anantlink.com/contact): Contact and pilot enquiry form.
+
+## Organization
+- Name: AnantLink
+- Website: https://anantlink.com/
+- Contact: contact@anantlink.com
+- Location: Hyderabad, India

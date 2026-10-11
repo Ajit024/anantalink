@@ -1,10 +1,13 @@
 User-agent: *
 Allow: /
-
-# Block irrelevant paths (future-proofing)
 Disallow: /admin
 Disallow: /private
 
-# Sitemap location
+# Allow ChatGPT search indexing while opting out of model-training crawls.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Disallow: /
+
 Sitemap: https://anantlink.com/sitemap.xml
-Sitemap: https://anantlink.vercel.app/sitemap.xml

@@ -1,7 +1,10 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
+import { Instagram, Linkedin, Mail, MapPin, MessageCircle, Youtube } from 'lucide-react'
 
 const SOLUTIONS = [
   'Patient Monitoring',
+  'Self Service Kiosk',
+  'Environmental Monitoring',
   'RTLS Asset Tracking',
   'Hospital Automation',
   'Digital Twin Platform',
@@ -11,6 +14,7 @@ const SOLUTIONS = [
 
 const COMPANY = [
   { label: 'About Us',  to: '/about' },
+  { label: 'Hospital in Motion', to: '/experience' },
   { label: 'Solutions', to: '/solutions' },
   { label: 'Contact',   to: '/contact' },
 ]
@@ -47,11 +51,11 @@ export default function Footer() {
             </p>
             <div style={{ display:'flex', gap:10, marginTop:22 }}>
               {[
-                { s:'LI', h:"https://www.linkedin.com/company/anantlink"},
-                { s:'TW', h:'#' },
-                { s:'YT', h:'#' },
-              ].map(p => (
-                <a key={p.s} href={p.h} style={{
+                { label:'AnantLink on LinkedIn', Icon:Linkedin, href:'https://www.linkedin.com/company/anantlink' },
+                { label:'AnantLink on YouTube', Icon:Youtube, href:'https://www.youtube.com/@AnantLink' },
+                { label:'AnantLink on Instagram', Icon:Instagram, href:'https://www.instagram.com/anantlink/' },
+              ].map(({ label, Icon, href }) => (
+                <a key={label} aria-label={label} href={href} target="_blank" rel="noreferrer" style={{
                   width:34, height:34,
                   border:'1px solid rgba(205,214,208,0.25)',
                   borderRadius:7,
@@ -61,7 +65,7 @@ export default function Footer() {
                 }}
                 onMouseEnter={e=>{e.currentTarget.style.borderColor='#cdd6d0';e.currentTarget.style.color='#f8f8ec'}}
                 onMouseLeave={e=>{e.currentTarget.style.borderColor='rgba(205,214,208,0.25)';e.currentTarget.style.color='#aababa'}}
-                >{p.s}</a>
+                ><Icon size={16}/></a>
               ))}
             </div>
           </div>
@@ -106,9 +110,10 @@ export default function Footer() {
               Get In Touch
             </h4>
             <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
-              <FRow icon="📍" text="Hyderabad" />
-              <FRow icon="✉️" text="contact@anantlink.com" />
-              <FRow icon="📞" text="+91 91487-14987 (whatsapp only)" />
+              <FRow Icon={MapPin} text="Registered office · Hyderabad, Telangana, India" />
+              <FRow Icon={MapPin} text="Working locations · Hospital and pilot sites across India" />
+              <FRow Icon={Mail} text="contact@anantlink.com" href="mailto:contact@anantlink.com" />
+              <FRow Icon={MessageCircle} text="+91 91487-14987 · WhatsApp" href="https://wa.me/919148714987" />
             </div>
             <div style={{ marginTop:22 }}>
               <span style={{
@@ -132,25 +137,15 @@ export default function Footer() {
           <p style={{ color:'#6a8a90', fontSize:12 }}>
             © {new Date().getFullYear()} AnantLink · All rights reserved.
           </p>
-          <div style={{ display:'flex', gap:20 }}>
-            {['Privacy Policy','Terms of Use'].map(l => (
-              <a key={l} href="#" style={{ color:'#6a8a90', fontSize:12, transition:'color 0.18s' }}
-                onMouseEnter={e=>e.currentTarget.style.color='#aababa'}
-                onMouseLeave={e=>e.currentTarget.style.color='#6a8a90'}
-              >{l}</a>
-            ))}
-          </div>
         </div>
       </div>
     </footer>
   )
 }
 
-function FRow({ icon, text }) {
+function FRow({ Icon, text, href }) {
+  const content = <><Icon size={15}/><span style={{ color:'#aababa', fontSize:14 }}>{text}</span></>
   return (
-    <div style={{ display:'flex', alignItems:'flex-start', gap:10 }}>
-      <span style={{ fontSize:13, marginTop:2 }}>{icon}</span>
-      <span style={{ color:'#aababa', fontSize:14 }}>{text}</span>
-    </div>
+    href ? <a className="footer-contact-link" href={href}>{content}</a> : <div className="footer-contact-link">{content}</div>
   )
 }

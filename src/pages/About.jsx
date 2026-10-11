@@ -1,23 +1,17 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
+import { Stethoscope, Building2, ShieldCheck, Workflow } from 'lucide-react'
+import IsometricHospital from '../components/IsometricHospital'
 
 const VALUES = [
-  { icon:'🔬', title:'Clinical first', desc:"Every feature starts with a clinician's actual workflow. If it doesn't make care better, it doesn't ship." },
-  { icon:'🏥', title:'Built for real conditions', desc:'Designed for accreditation-grade compliance, variable infrastructure, and tight hospital budgets — not retrofitted from somewhere else.' },
-  { icon:'🛡️', title:'Security by default', desc:'On-premise options, AES-128 encrypted data pipes, role-based access, and full DISHA data localisation — from day one.' },
-  { icon:'🔗', title:'Open and interoperable', desc:'Vendor-agnostic hardware, open APIs, native FHIR support. We work with your existing systems, not around them.' },
-]
-
-const MILESTONES = [
-  { year:'2026', event:'AnantLink founded by engineers tired of watching hospitals run on paper and guesswork. Vital-sign monitoring and command dashboard in active development.' },
-  // { year:'2022', event:'First pilot deployment at a 200-bed tertiary care hospital in Karnataka — patient monitoring and asset tracking.' },
-  // { year:'2023', event:'RTLS and automation modules launched. Expanded to multi-building hospital campuses.' },
-  // { year:'2024', event:'Digital Twin and AI Analytics added. Deployments across multiple states. Series A process begun.' },
-  // { year:'2025', event:'NABH technology partner conversations underway. Actively recruiting pilot hospital partners across India.' },
+  { Icon:Stethoscope, title:'Clinical first', desc:"We start with the workflow: what a clinician needs to see, when they need it, and what should happen next." },
+  { Icon:Building2, title:'Built for hospital conditions', desc:'Connectivity, existing devices, and local operating requirements shape how we design the platform.' },
+  { Icon:ShieldCheck, title:'Security by design', desc:'Access controls and deployment choices are part of the system design from the start.' },
+  { Icon:Workflow, title:'Designed to connect', desc:'The platform is being built to work with existing hospital systems and equipment.' },
 ]
 
 const TEAM = [
-  { name:'Sushma Kumari', role:'Co-Founder & CEO', bg:'' },
-  { name:'Ajit', role:'Co-Founder & CTO', bg:'' },
+  { name:'Sushma Kumari', role:'Co-Founder & CEO', bg:'Building AnantLink around the day-to-day realities of hospital teams.' },
+  { name:'Ajit', role:'Co-Founder & CTO', bg:'Leading the platform and connected-device architecture.' },
   // { name:'Dr. Priya Nair', role:'Co-Founder & CMO', bg:'Intensivist and clinical informaticist. Spent a decade in ICU care watching data gaps cost lives. AIIMS trained.' },
   // { name:'Suresh Iyer', role:'CTO', bg:'15 years in embedded systems and wireless networking. Ex-Cisco. Knows what breaks in the field.' },
   // { name:'Ananya Rao', role:'Head of Product', bg:'Healthcare UX designer who has spent years in hospital corridors watching workflows. IIM Bangalore MBA.' },
@@ -27,18 +21,19 @@ export default function About() {
   return (
     <main>
       {/* ── HERO ──────────────────────────────────── */}
-      <section style={{ position:'relative', padding:'80px 0 72px', background:'var(--bg-surface)', overflow:'hidden' }}>
+      <section style={{ position:'relative', padding:'68px 0 64px', background:'var(--bg-surface)', overflow:'hidden' }}>
         <div className="dot-bg" />
-        <div className="container" style={{ position:'relative', zIndex:1, maxWidth:700 }}>
-          <div className="section-label">About AnantLink</div>
-          <h1 style={{ fontSize:'clamp(34px,5vw,62px)', fontWeight:400, letterSpacing:'-0.02em', lineHeight:1.1, marginBottom:24 }}>
-            We started because hospitals deserved better tools.
-          </h1>
-          <p style={{ color:'var(--text-secondary)', fontSize:18, lineHeight:1.8 }}>
-            AnantLink was founded by engineers who spent years around hospital systems —
-            watching care teams make critical decisions without real-time data.
-            We knew the technology existed. It just hadn't been built right for the hospitals that need it most.
-          </p>
+        <div className="container about-hero-grid" style={{ position:'relative', zIndex:1 }}>
+          <div>
+            <div className="section-label">About AnantLink</div>
+            <h1 style={{ fontSize:'clamp(34px,5vw,62px)', fontWeight:400, letterSpacing:'-0.02em', lineHeight:1.1, marginBottom:24 }}>
+              Software shaped around the way hospitals work.
+            </h1>
+            <p style={{ color:'var(--text-secondary)', fontSize:17, lineHeight:1.8 }}>
+              AnantLink is an early-stage team building connected-care tools for hospitals. We bring patient signals, devices, and operational workflows into one view.
+            </p>
+          </div>
+          <IsometricHospital />
         </div>
       </section>
 
@@ -52,14 +47,8 @@ export default function About() {
                 Give every hospital<br/>
                 <em style={{ color:'var(--accent)', fontStyle:'italic' }}>the data it needs.</em>
               </h2>
-              <p style={{ color:'var(--text-secondary)', lineHeight:1.8, fontSize:16, marginBottom:18 }}>
-                Most hospital decisions — from where to find an infusion pump
-                to how full the ICU will be tomorrow — still happen without real-time information.
-              </p>
               <p style={{ color:'var(--text-secondary)', lineHeight:1.8, fontSize:16, marginBottom:32 }}>
-                AnantLink exists to fix that. Not with an overpriced platform that takes three 
-                years to implement — but with modular tools that plug into existing infrastructure 
-                and show measurable results within weeks.
+                Our goal is to make relevant information easier to reach—whether it comes from a bedside monitor, a room sensor, or an existing hospital system. The platform is modular, so teams can begin with a focused workflow.
               </p>
               <div style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
                 <Link to="/contact" className="btn btn-primary">Partner with us</Link>
@@ -67,61 +56,13 @@ export default function About() {
               </div>
             </div>
 
-            <div style={{ display:'flex', flexDirection:'column', gap:14 }}>
-              {[
-                { n:'4–6', l:'Siloed systems replaced by one platform' },
-                { n:'24/7', l:'Continuous monitoring by design' },
-                { n:'Weeks', l:'From install to measurable results' },
-                { n:'<5%', l:'Hospitals with real-time operational data today' },
-              ].map(s => (
-                <div key={s.l} style={{
-                  padding:'18px 24px',
-                  background:'var(--bg-card)',
-                  border:'1px solid var(--border-soft)',
-                  borderRadius:10,
-                  display:'flex', justifyContent:'space-between', alignItems:'center', gap:16,
-                  boxShadow:'var(--shadow-sm)',
-                }}>
-                  <span style={{ fontFamily:'var(--font-head)', fontSize:26, color:'var(--teal-dark)' }}>{s.n}</span>
-                  <span style={{ color:'var(--text-secondary)', fontSize:13, textAlign:'right', maxWidth:180 }}>{s.l}</span>
-                </div>
-              ))}
-            </div>
+            <figure className="about-architecture-figure">
+              <img src="/images/anantlink-iomt-architecture.png" alt="AnantLink architecture: medical devices, sensors, and assets connect through local gateways to platform services and staff dashboards" loading="lazy" />
+              <figcaption>How signals move from hospital devices to the views care teams use.</figcaption>
+            </figure>
           </div>
         </div>
         <style>{`@media(max-width:768px){.mission-grid{grid-template-columns:1fr!important;}}`}</style>
-      </section>
-
-      {/* ── TIMELINE ──────────────────────────────── */}
-      <section style={{ background:'var(--bg-surface)', padding:'80px 0' }}>
-        <div className="container">
-          <div className="section-label">Journey</div>
-          <h2 style={{ fontSize:'clamp(24px,3.5vw,40px)', fontWeight:400, marginBottom:52 }}>
-            Where we've been. Where we're going.
-          </h2>
-          <div style={{ position:'relative', paddingLeft:36 }}>
-            <div style={{
-              position:'absolute', left:8, top:6, bottom:6, width:2,
-              background:'linear-gradient(180deg, var(--accent) 0%, var(--sage) 100%)',
-              borderRadius:2,
-            }} />
-            {MILESTONES.map((m, i) => (
-              <div key={m.year} style={{ display:'flex', gap:24, marginBottom: i < MILESTONES.length-1 ? 38 : 0, position:'relative' }}>
-                <div style={{
-                  position:'absolute', left:-36, width:18, height:18, borderRadius:'50%',
-                  background: i === MILESTONES.length-1 ? 'var(--accent)' : 'var(--bg-surface)',
-                  border:`2px solid ${i === MILESTONES.length-1 ? 'var(--accent)' : 'var(--sage-mid)'}`,
-                  top:3,
-                  boxShadow: i === MILESTONES.length-1 ? '0 0 10px rgba(20,113,186,0.3)' : 'none',
-                }} />
-                <div>
-                  <div style={{ fontWeight:700, fontSize:12, color:'var(--accent)', letterSpacing:'0.1em', marginBottom:5 }}>{m.year}</div>
-                  <p style={{ color:'var(--text-secondary)', fontSize:15, lineHeight:1.65 }}>{m.event}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* ── VALUES ────────────────────────────────── */}
@@ -133,8 +74,8 @@ export default function About() {
           </h2>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(250px, 1fr))', gap:18 }}>
             {VALUES.map(v => (
-              <div key={v.title} className="card">
-                <div style={{ fontSize:26, marginBottom:18 }}>{v.icon}</div>
+              <div key={v.title} className="card iso-raised">
+                <div className="about-value-icon"><v.Icon size={21}/></div>
                 <h3 style={{ fontFamily:'var(--font-head)', fontSize:20, fontWeight:400, marginBottom:10 }}>{v.title}</h3>
                 <p style={{ color:'var(--text-secondary)', fontSize:14, lineHeight:1.75 }}>{v.desc}</p>
               </div>
@@ -148,11 +89,11 @@ export default function About() {
         <div className="container">
           <div className="section-label">The Team</div>
           <h2 style={{ fontSize:'clamp(24px,3.5vw,40px)', fontWeight:400, marginBottom:48 }}>
-            Engineers and clinicians — at the same table.
+            A small team building for hospital workflows.
           </h2>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(240px, 1fr))', gap:20 }}>
             {TEAM.map(t => (
-              <div key={t.name} className="card">
+              <div key={t.name} className="card iso-raised team-card">
                 <div style={{
                   width:56, height:56, borderRadius:'50%',
                   background:'linear-gradient(135deg, var(--sage), var(--blue-light))',
