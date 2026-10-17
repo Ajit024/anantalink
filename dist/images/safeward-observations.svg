@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" fill="none">
+  <rect width="900" height="560" rx="28" fill="#F1F6F1"/>
+  <rect x="24" y="24" width="852" height="512" rx="18" fill="#FFFEFA" stroke="#D8E3DA" stroke-width="2"/>
+  <rect x="24" y="24" width="196" height="512" rx="18" fill="#173940"/>
+  <path d="M202 24h18v512h-18z" fill="#173940"/>
+  <circle cx="63" cy="65" r="20" fill="#2EAA8A"/><path d="M53 65h20M63 55v20" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <text x="94" y="61" fill="#F4FAF5" font-family="Arial,sans-serif" font-size="18" font-weight="700">SafeWard</text>
+  <text x="94" y="80" fill="#9FBDB0" font-family="Arial,sans-serif" font-size="10">BY ANANTLINK</text>
+  <rect x="42" y="119" width="160" height="38" rx="9" fill="#2E5555"/><circle cx="61" cy="138" r="4" fill="#8ED9BB"/><text x="76" y="142" fill="#F2FAF5" font-family="Arial,sans-serif" font-size="12" font-weight="600">Ward overview</text>
+  <text x="55" y="194" fill="#A9C1B7" font-family="Arial,sans-serif" font-size="11">WORKFLOWS</text>
+  <text x="76" y="232" fill="#E8F0EB" font-family="Arial,sans-serif" font-size="12">Observations</text>
+  <text x="76" y="272" fill="#A9C1B7" font-family="Arial,sans-serif" font-size="12">Escalations</text>
+  <text x="76" y="312" fill="#A9C1B7" font-family="Arial,sans-serif" font-size="12">Reports</text>
+  <circle cx="58" cy="228" r="5" fill="#62C6A3"/><circle cx="58" cy="268" r="5" fill="#E5A553"/><circle cx="58" cy="308" r="5" fill="#7FAEC1"/>
+  <text x="248" y="72" fill="#1D3D42" font-family="Arial,sans-serif" font-size="24" font-weight="700">Ward 2 · Observation board</text>
+  <text x="248" y="98" fill="#819188" font-family="Arial,sans-serif" font-size="12">Sample data · Tuesday day shift</text>
+  <rect x="735" y="47" width="116" height="32" rx="16" fill="#E9F5ED"/><circle cx="753" cy="63" r="4" fill="#45A879"/><text x="765" y="67" fill="#44815F" font-family="Arial,sans-serif" font-size="10" font-weight="700">WARD VIEW</text>
+  <rect x="248" y="124" width="183" height="94" rx="12" fill="#F5F8F5" stroke="#E1E9E2"/><rect x="445" y="124" width="183" height="94" rx="12" fill="#FFF7E9" stroke="#F0E0BE"/><rect x="642" y="124" width="209" height="94" rx="12" fill="#FFF1EC" stroke="#F2D9CE"/>
+  <text x="267" y="150" fill="#73847A" font-family="Arial,sans-serif" font-size="11">OBSERVATIONS DUE</text><text x="267" y="194" fill="#24484A" font-family="Arial,sans-serif" font-size="32" font-weight="700">04</text><text x="318" y="192" fill="#8B9A91" font-family="Arial,sans-serif" font-size="11">next 30 min</text>
+  <text x="464" y="150" fill="#9C773A" font-family="Arial,sans-serif" font-size="11">OVERDUE</text><text x="464" y="194" fill="#B67A2A" font-family="Arial,sans-serif" font-size="32" font-weight="700">01</text><text x="515" y="192" fill="#A38B67" font-family="Arial,sans-serif" font-size="11">follow-up needed</text>
+  <text x="661" y="150" fill="#A96754" font-family="Arial,sans-serif" font-size="11">ESCALATIONS</text><text x="661" y="194" fill="#C76D56" font-family="Arial,sans-serif" font-size="32" font-weight="700">01</text><text x="712" y="192" fill="#A98278" font-family="Arial,sans-serif" font-size="11">review requested</text>
+  <text x="248" y="257" fill="#1D3D42" font-family="Arial,sans-serif" font-size="14" font-weight="700">Patients requiring attention</text>
+  <rect x="248" y="275" width="603" height="72" rx="11" fill="#FFFEFA" stroke="#E4EAE4"/><circle cx="281" cy="311" r="17" fill="#E6F0E9"/><text x="276" y="315" fill="#398669" font-family="Arial,sans-serif" font-size="12" font-weight="700">A</text><text x="311" y="306" fill="#284747" font-family="Arial,sans-serif" font-size="13" font-weight="700">Sample patient · Room 204</text><text x="311" y="326" fill="#87948C" font-family="Arial,sans-serif" font-size="10">Observation round · 10:24</text><rect x="716" y="291" width="112" height="38" rx="8" fill="#FFF4E6"/><text x="731" y="305" fill="#A37A40" font-family="Arial,sans-serif" font-size="9">SAMPLE EWS</text><text x="732" y="320" fill="#9D642B" font-family="Arial,sans-serif" font-size="16" font-weight="700">5 · REVIEW</text>
+  <text x="248" y="383" fill="#71847A" font-family="Arial,sans-serif" font-size="11">LATEST OBSERVATION</text>
+  <rect x="248" y="397" width="190" height="52" rx="9" fill="#F7F9F6"/><rect x="449" y="397" width="190" height="52" rx="9" fill="#F7F9F6"/><rect x="650" y="397" width="201" height="52" rx="9" fill="#F7F9F6"/>
+  <text x="264" y="418" fill="#8A9890" font-family="Arial,sans-serif" font-size="10">PULSE</text><text x="264" y="437" fill="#315452" font-family="Arial,sans-serif" font-size="14" font-weight="700">112 bpm</text><text x="465" y="418" fill="#8A9890" font-family="Arial,sans-serif" font-size="10">SpO₂</text><text x="465" y="437" fill="#315452" font-family="Arial,sans-serif" font-size="14" font-weight="700">94%</text><text x="666" y="418" fill="#8A9890" font-family="Arial,sans-serif" font-size="10">NEXT CHECK</text><text x="666" y="437" fill="#315452" font-family="Arial,sans-serif" font-size="14" font-weight="700">10:30</text>
+  <rect x="248" y="468" width="603" height="43" rx="9" fill="#EAF5EF"/><circle cx="270" cy="489" r="6" fill="#52A982"/><text x="286" y="493" fill="#376B55" font-family="Arial,sans-serif" font-size="11" font-weight="600">Observation recorded · next action visible to the care team</text>
+</svg>

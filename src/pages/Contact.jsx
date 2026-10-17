@@ -9,6 +9,7 @@ const EMAILJS_PUBLIC_KEY  = 'E87xiLqgL7OvXp5Io'   // e.g. 'aBcDeFgHiJkLmNoP'
 // ─────────────────────────────────────────────────────────────────────────────
 
 const INTERESTS = [
+  'SafeWard patient safety pilot',
   'Patient Monitoring',
   'RTLS Asset Tracking',
   'Hospital Automation',

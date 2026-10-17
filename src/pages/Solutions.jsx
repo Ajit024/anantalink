@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
-import { BarChart3, Building2, HeartPulse, Layers3, MapPin, Radio, Tablet, Thermometer } from 'lucide-react'
+import { BarChart3, Building2, HeartPulse, Layers3, MapPin, Radio, ShieldAlert, Tablet, Thermometer } from 'lucide-react'
 
-const MODULE_ICONS = { monitoring: HeartPulse, 'self-kiosk': Tablet, environmental: Thermometer, rtls: MapPin, automation: Building2, digitaltwin: Layers3, ai: BarChart3, ble: Radio }
+const MODULE_ICONS = { monitoring: HeartPulse, 'self-kiosk': Tablet, environmental: Thermometer, rtls: MapPin, automation: Building2, digitaltwin: Layers3, ai: BarChart3, safeward: ShieldAlert, ble: Radio }
 const MODULE_ARTWORK = {
   monitoring: ['/images/solutions/vsm-product.webp', 'Vital signs monitor, wearable patch, and pulse oximeter for patient monitoring'],
   rtls: ['/images/solutions/asset-tracking-product.webp', 'BLE location tag and beacon alongside a hospital infusion pump'],
@@ -11,6 +11,7 @@ const MODULE_ARTWORK = {
   'self-kiosk': ['/images/selfkioske.png', 'Hospital self-service check-in kiosk'],
   digitaltwin: ['/images/solutions/asset-tracking-product.webp', 'Tracked infusion pump and location beacon for a live hospital floor view'],
   ai: ['/images/platform-dashboard.svg', 'Hospital operations dashboard showing sample alerts, devices, and environmental zones'],
+  safeward: ['/images/safeward-observations.svg', 'SafeWard ward dashboard preview showing due observations, an early warning score, and escalation activity'],
 }
 
 const SOLUTIONS = [
@@ -115,16 +116,32 @@ const SOLUTIONS = [
     id: 'ai',
     icon: '📊',
     tag: 'Analytics',
-    title: 'AI Analytics Dashboard',
-    subtitle: 'Decisions that used to take a committee — delivered every morning.',
-    desc: `Sensor data from across your hospital becomes operational intelligence: bed occupancy forecasts, equipment maintenance predictions, staff workload alerts, infection risk scores, and energy audit reports — all on one command screen without a data analyst in the loop.`,
+    title: 'Optional AI & Operational Analytics',
+    subtitle: 'Useful insights when the data and workflow are ready.',
+    desc: `An optional analytics layer can help teams summarize operational trends and plan around patterns in suitably governed data. Core observation, reminders, and escalation workflows continue to work without AI. Any clinical signal remains subject to locally approved rules and human review; AI does not diagnose or replace a clinician.`,
     features: [
-      'Bed occupancy forecasting (72-hour horizon)',
-      'Predictive maintenance for medical equipment',
-      'Infection risk scoring from environmental sensors',
-      'Safe-staffing level and fatigue alerts',
-      'Energy audit and cost recommendations',
-      'Custom KPI dashboards for CXO reporting',
+      'Operational trend summaries and configurable reports',
+      'Optional forecasting where data quality supports it',
+      'Clear source data and review context for insights',
+      'Role-based access and human review',
+      'Core alerts and workflows operate without AI',
+      'Hospital governance determines where analytics is appropriate',
+    ],
+  },
+  {
+    id: 'safeward',
+    icon: '🛡️',
+    tag: 'Patient Safety',
+    title: 'SafeWard by AnantLink',
+    subtitle: 'Safer Wards. Smarter Care. Timely Action.',
+    desc: 'SafeWard is a smart hospital workflow solution designed to digitise vital-sign observations, help identify early warning signs, and support timely clinical escalation. It helps nursing teams move from paper-based rounds to a more reliable, measurable process using the hospital’s approved observation protocol. SafeWard supports clinical teams; it does not replace clinical judgement.',
+    features: [
+      'Digital recording and tracking of patient observations',
+      'Early Warning Scores configured to the hospital-approved protocol',
+      'Reminders for observations that are due or overdue',
+      'Role-based escalation to the responsible clinical team',
+      'Ward dashboard for patient status and pending observations',
+      '12-week, one-ward pilot with nursing and clinical leads',
     ],
   },
   {
@@ -160,13 +177,20 @@ export default function Solutions() {
               Start where your hospital hurts most.
             </h1>
             <p style={{ color:'var(--text-secondary)', fontSize:17, maxWidth:520, lineHeight:1.75 }}>
-              A modular connected-care platform. Begin with one workflow and expand as your needs grow.
+              A modular connected-care platform. Begin with one workflow and expand as your needs grow. AI analytics is optional; core observation and escalation workflows do not depend on it.
             </p>
           </div>
           <div className="solutions-screen iso-device-frame">
             <div className="solutions-screen-head"><span>PLATFORM PREVIEW</span><small>Sample dashboard data</small></div>
             <img src="/images/platform-dashboard.svg" alt="AnantLink hospital dashboard interface preview" />
           </div>
+        </div>
+      </section>
+
+      <section className="safeward-callout" aria-label="SafeWard pilot model">
+        <div className="container safeward-callout-inner">
+          <div><span className="section-label">Featured product</span><h2>SafeWard · Safer Wards. Smarter Care. Timely Action.</h2><p>Digitise observations, prompt timely checks, and make escalation activity visible—starting with one ward and a 12-week pilot.</p></div>
+          <Link to="/safeward" className="btn btn-primary">Explore SafeWard →</Link>
         </div>
       </section>
 
@@ -263,6 +287,7 @@ function SolutionRow({ sol, flip }) {
             </li>
           ))}
         </ul>
+        {sol.id === 'safeward' && <Link to="/safeward" className="home-safeward-link">View SafeWard pilot model <span aria-hidden="true">→</span></Link>}
       </div>
 
       <div style={{ order: flip ? 1 : 2 }}><ModuleVisual id={sol.id} title={sol.title}/></div>

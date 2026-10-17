@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router'
 
 const NAV_LINKS = [
   { label: 'What We\'re Building', to: '/solutions' },
+  { label: 'SafeWard', to: '/safeward' },
   { label: 'Hospital in Motion', to: '/experience' },
   { label: 'Demo', to: '/demo' },
   { label: 'About',     to: '/about'     },

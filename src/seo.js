@@ -4,7 +4,7 @@ const SHARE_IMAGE = `${SITE}/images/hero-smart-hospital.png`
 export const SITE_PAGES = {
   '/': {
     title: 'Hospital IoT & Connected Care Platform | AnantLink',
-    description: 'AnantLink connects patient monitoring, hospital RTLS, medical asset tracking, indoor environment sensors, and care-team alerts in one modular hospital IoT platform.',
+    description: 'AnantLink connects patient monitoring, SafeWard digital observations, hospital RTLS, medical asset tracking, indoor environment sensors, and care-team alerts in one modular hospital IoT platform. Optional AI analytics supports operational review.',
   },
   '/solutions': {
     title: 'Hospital IoT Solutions: Monitoring, RTLS & Automation | AnantLink',
@@ -25,6 +25,10 @@ export const SITE_PAGES = {
   '/experience': {
     title: 'Hospital in Motion | RTLS, Fall Alerts & Device Demo | AnantLink',
     description: 'Explore a simulated hospital campus and indoor ward walkthrough with moving staff, patient location, fall alerts, asset tracking, and device readings.',
+  },
+  '/safeward': {
+    title: 'SafeWard by AnantLink | Digital Ward Observations & Clinical Escalation',
+    description: 'SafeWard helps hospitals digitise ward observations, configure Early Warning Scores to approved protocols, remind staff when checks are due, and review clinical escalation activity in a 12-week ward pilot.',
   },
 }
 

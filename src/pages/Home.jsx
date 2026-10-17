@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { BarChart3, Building2, HeartPulse, Layers3, MapPin, Radio, Tablet, Thermometer } from 'lucide-react'
+import { BarChart3, Building2, HeartPulse, Layers3, MapPin, Radio, ShieldAlert, Tablet, Thermometer } from 'lucide-react'
 import EcosystemFlow from '../components/EcosystemFlow'
 
 const SOLUTIONS = [
@@ -15,11 +15,20 @@ const SOLUTIONS = [
   {
     Icon: BarChart3,
     tag: 'Analytics',
-    status: 'In active development',
+    status: 'Optional layer',
     art: '/images/platform-dashboard.svg',
     artAlt: 'Hospital dashboard showing active alerts and monitored areas',
-    title: 'Command Dashboard',
-    desc: 'One live view of the whole hospital — patients, devices, alerts, and operational KPIs. From bed forecasts to predictive maintenance.',
+    title: 'Command Dashboard & AI Analytics',
+    desc: 'One operational view of patients, devices, and alerts. Optional AI analytics can summarize trends and support planning; core workflows remain useful without AI, with people making clinical decisions.',
+  },
+  {
+    Icon: ShieldAlert,
+    tag: 'Patient Safety',
+    status: 'Product preview',
+    art: '/images/safeward-observations.svg',
+    artAlt: 'SafeWard ward dashboard preview showing observation status, an early warning score, and escalation activity',
+    title: 'SafeWard',
+    desc: 'Digitise ward observations, surface early warning scores, remind staff when checks are due, and support timely clinical escalation.',
   },
   {
     Icon: MapPin,
@@ -157,9 +166,9 @@ export default function Home() {
                 lineHeight:1.75,
                 marginBottom:40,
               }}>
-                AnantLink is Connected Care Infrastructure — patient monitoring, asset
-                tracking, automation, and AI analytics on one modular platform, built
-                around how hospitals actually work.
+                AnantLink is Connected Care Infrastructure — patient monitoring, SafeWard
+                observations, asset tracking, and hospital workflows in one modular platform.
+                Optional AI analytics can support operational review when it adds value.
                 <br /><br />
                 <strong style={{ color:'var(--teal-dark)' }}>Vendor-neutral. Offline-first. Compliance-native.</strong>
               </p>
@@ -239,6 +248,7 @@ export default function Home() {
                 </div>
                 <h3 style={{ fontFamily:'var(--font-head)', fontSize:20, fontWeight:400, marginBottom:10 }}>{sol.title}</h3>
                 <p style={{ color:'var(--text-secondary)', fontSize:14, lineHeight:1.75 }}>{sol.desc}</p>
+                {sol.title === 'SafeWard' && <Link to="/safeward" className="home-safeward-link">Explore SafeWard <span aria-hidden="true">→</span></Link>}
               </div>
             ))}
           </div>

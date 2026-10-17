@@ -3,13 +3,14 @@ import { Instagram, Linkedin, Mail, MapPin, MessageCircle, Youtube } from 'lucid
 
 const SOLUTIONS = [
   'Patient Monitoring',
+  'SafeWard by AnantLink',
   'Self Service Kiosk',
   'Environmental Monitoring',
   'RTLS Asset Tracking',
   'Hospital Automation',
   'Digital Twin Platform',
   'BLE IoT Infrastructure',
-  'AI Analytics Dashboard',
+  'Optional AI & Operational Analytics',
 ]
 
 const COMPANY = [
@@ -78,7 +79,7 @@ export default function Footer() {
             <ul style={{ listStyle:'none', display:'flex', flexDirection:'column', gap:10 }}>
               {SOLUTIONS.map(s => (
                 <li key={s}>
-                  <Link to="/solutions" style={{ color:'#aababa', fontSize:14, transition:'color 0.18s' }}
+                  <Link to={s.startsWith('SafeWard') ? '/safeward' : '/solutions'} style={{ color:'#aababa', fontSize:14, transition:'color 0.18s' }}
                     onMouseEnter={e=>e.currentTarget.style.color='#f8f8ec'}
                     onMouseLeave={e=>e.currentTarget.style.color='#aababa'}
                   >{s}</Link>

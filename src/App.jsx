@@ -8,6 +8,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Demo from './pages/Demo'
 import Experience from './pages/Experience'
+import SafeWard from './pages/SafeWard'
 import RouteMetadata from './components/RouteMetadata'
 
 function ScrollToTop() {
@@ -33,6 +34,7 @@ export function SiteContent() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/demo" element={<Demo />} />
         <Route path="/experience" element={<Experience />} />
+        <Route path="/safeward" element={<SafeWard />} />
       </Routes>
       <Footer />
     </>
